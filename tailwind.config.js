@@ -17,7 +17,22 @@ export default {
       },
       boxShadow: {
         soft: "0 18px 60px rgba(15, 23, 42, 0.10)",
-        "soft-dark": "0 18px 60px rgba(0, 0, 0, 0.35)"
+        "soft-dark": "0 18px 60px rgba(0, 0, 0, 0.35)",
+        glow: "0 0 40px rgba(32, 201, 151, 0.35)"
+      },
+      animation: {
+        "float": "float 6s ease-in-out infinite",
+        "pulse-soft": "pulse-soft 3s ease-in-out infinite"
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-12px)" }
+        },
+        "pulse-soft": {
+          "0%, 100%": { opacity: "0.7" },
+          "50%": { opacity: "1" }
+        }
       }
     }
   },

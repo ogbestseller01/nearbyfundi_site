@@ -2,6 +2,7 @@ import { Menu, X, ArrowUpRight, Moon, Sun } from "lucide-react";
 import { useState } from "react";
 import type { Lang } from "../data/content";
 import { copy } from "../data/content";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Props = {
   lang: Lang;
@@ -105,8 +106,15 @@ export default function Navbar({ lang, setLang, dark, toggleDark }: Props) {
         </button>
       </div>
 
+      <AnimatePresence>
       {open && (
-        <div className="border-t border-slate-100 bg-white px-5 pb-6 pt-3 dark:border-slate-800 dark:bg-slate-950 lg:hidden">
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="overflow-hidden border-t border-slate-100 bg-white px-5 pb-6 pt-3 dark:border-slate-800 dark:bg-slate-950 lg:hidden"
+        >
           <div className="container-page flex flex-col gap-1">
             {links.map(([key, href]) => (
               <a
@@ -148,8 +156,9 @@ export default function Navbar({ lang, setLang, dark, toggleDark }: Props) {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </header>
   );
 }

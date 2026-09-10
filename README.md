@@ -1,10 +1,18 @@
 # NearbyFundi Website
 
-A Bolt-inspired, static marketing website for NearbyFundi built with React, TypeScript, Vite and Tailwind CSS.
+A polished, motion-rich marketing website for NearbyFundi built with React, TypeScript, Vite, Tailwind CSS and Framer Motion.
+
+## Highlights
+
+- **Hero animations** — staggered entrance, floating badges, gradient orbs, live mockup gallery (WOW.js-style reveals using Framer Motion)
+- **Scroll reveals** on About, Services and more
+- **Animated mobile menu**
+- English / Swahili toggle + dark mode
+- Fully responsive
 
 ## Sections
 
-- Home
+- Home (enhanced hero)
 - About
 - Services
 - Blog / product stories
@@ -12,11 +20,7 @@ A Bolt-inspired, static marketing website for NearbyFundi built with React, Type
 - FAQ
 - Support
 - Contact
-- English / Swahili language toggle
-- Responsive mobile navigation
-- Dark footer
-- Partner display: Selcom, Dohosting, Beam Africa
-- NearbyFundi app UI mockups without a map
+- Partners
 
 ## Run
 
@@ -39,11 +43,13 @@ src/
   components/
     Footer.tsx
     Hero.tsx
+    Motion.tsx      # Reveal / Stagger helpers (Framer Motion)
     Navbar.tsx
     PhoneMockup.tsx
     Sections.tsx
   data/
     content.ts
+    services.ts
   App.tsx
   index.css
   main.tsx

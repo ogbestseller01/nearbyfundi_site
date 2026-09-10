@@ -16,17 +16,17 @@ export const copy = {
     heroEyebrow: "Your trusted service marketplace",
     heroTitle: "Find a trusted fundi. Right when you need one.",
     heroText:
-      "NearbyFundi connects customers with nearby technicians and service providers for home, electrical, plumbing, appliance, construction, automotive and maintenance services.",
+        "NearbyFundi connects customers with nearby technicians and service providers for home, electrical, plumbing, appliance, construction, automotive and maintenance services.",
     find: "Get started",
     explore: "Explore how it works",
     aboutEyebrow: "Built for Tanzania",
     aboutTitle: "Local service discovery, made simple.",
     aboutText:
-      "NearbyFundi is a digital platform that makes it easier to discover, request and communicate with skilled technicians. Customers get convenience. Fundis get visibility and new jobs.",
+        "NearbyFundi is a digital platform that makes it easier to discover, request and communicate with skilled technicians. Customers get convenience. Fundis get visibility and new jobs.",
     serviceEyebrow: "What you can book",
     serviceTitle: "One app for everyday services.",
     serviceSubtitle:
-      "From a leaking pipe to a full house build — search our full catalog of verified trades.",
+        "From a leaking pipe to a full house build — search our full catalog of verified trades.",
     serviceSearchPlaceholder: "Search a service, e.g. \"solar\" or \"plumber\"",
     serviceAllCategories: "All services",
     serviceResultsOne: "service",
@@ -41,18 +41,18 @@ export const copy = {
     partnersEyebrow: "Trusted partners",
     partnersTitle: "Powering payments & growth across Africa.",
     partnersText:
-      "We work with leading African technology companies to deliver reliable payments, messaging and infrastructure for NearbyFundi.",
+        "We work with leading African technology companies to deliver reliable payments, messaging and infrastructure for NearbyFundi.",
     contactEyebrow: "Talk to NearbyFundi",
     contactTitle: "Questions, partnerships or support?",
     contactText:
-      "Reach our team in Dar es Salaam for product support, partnerships and business enquiries.",
+        "Reach our team in Dar es Salaam for product support, partnerships and business enquiries.",
     careersTitle: "Build the future of local services with us.",
     careersText:
-      "We are building technology that creates opportunity for skilled people and makes everyday services easier to access.",
+        "We are building technology that creates opportunity for skilled people and makes everyday services easier to access.",
     faqTitle: "Frequently asked questions",
     supportTitle: "Need help?",
     supportText:
-      "Our support team can help with accounts, service requests, technician onboarding and general product questions.",
+        "Our support team can help with accounts, service requests, technician onboarding and general product questions.",
     darkMode: "Dark",
     lightMode: "Light"
   },
@@ -71,17 +71,17 @@ export const copy = {
     heroEyebrow: "Soko la huduma unaloweza kuamini",
     heroTitle: "Mpate fundi unayemwamini, pale unapomhitaji.",
     heroText:
-      "NearbyFundi inaunganisha wateja na mafundi na watoa huduma walio karibu kwa huduma za nyumbani, umeme, mabomba, vifaa, ujenzi, magari na matengenezo.",
+        "NearbyFundi inaunganisha wateja na mafundi na watoa huduma walio karibu kwa huduma za nyumbani, umeme, mabomba, vifaa, ujenzi, magari na matengenezo.",
     find: "Anza sasa",
     explore: "Jinsi inavyofanya kazi",
     aboutEyebrow: "Imejengwa kwa Tanzania",
     aboutTitle: "Kupata huduma za karibu, kwa urahisi.",
     aboutText:
-      "NearbyFundi ni jukwaa la kidijitali linalorahisisha kutafuta, kuomba na kuwasiliana na mafundi wenye ujuzi. Wateja wanapata urahisi; mafundi wanapata wateja na kazi zaidi.",
+        "NearbyFundi ni jukwaa la kidijitali linalorahisisha kutafuta, kuomba na kuwasiliana na mafundi wenye ujuzi. Wateja wanapata urahisi; mafundi wanapata wateja na kazi zaidi.",
     serviceEyebrow: "Huduma unazoweza kuomba",
     serviceTitle: "Programu moja kwa huduma za kila siku.",
     serviceSubtitle:
-      "Kuanzia bomba linalovuja hadi ujenzi wa nyumba nzima — tafuta orodha kamili ya mafundi waliothibitishwa.",
+        "Kuanzia bomba linalovuja hadi ujenzi wa nyumba nzima — tafuta orodha kamili ya mafundi waliothibitishwa.",
     serviceSearchPlaceholder: "Tafuta huduma, mf. \"solar\" au \"fundi bomba\"",
     serviceAllCategories: "Huduma zote",
     serviceResultsOne: "huduma",
@@ -96,25 +96,24 @@ export const copy = {
     partnersEyebrow: "Washirika wa kuaminika",
     partnersTitle: "Tunasaidia malipo na ukuaji Afrika.",
     partnersText:
-      "Tunafanya kazi na makampuni ya teknolojia yanayoongoza Afrika kutoa malipo, ujumbe na miundombinu ya kuaminika kwa NearbyFundi.",
+        "Tunafanya kazi na makampuni ya teknolojia yanayoongoza Afrika kutoa malipo, ujumbe na miundombinu ya kuaminika kwa NearbyFundi.",
     contactEyebrow: "Wasiliana na NearbyFundi",
     contactTitle: "Una swali, ushirikiano au unahitaji msaada?",
     contactText:
-      "Wasiliana na timu yetu Dar es Salaam kwa msaada, ushirikiano na maswali ya biashara.",
+        "Wasiliana na timu yetu Dar es Salaam kwa msaada, ushirikiano na maswali ya biashara.",
     careersTitle: "Jenga nasi mustakabali wa huduma za ndani.",
     careersText:
-      "Tunajenga teknolojia inayowawezesha mafundi wenye ujuzi kupata fursa na kurahisisha upatikanaji wa huduma.",
+        "Tunajenga teknolojia inayowawezesha mafundi wenye ujuzi kupata fursa na kurahisisha upatikanaji wa huduma.",
     faqTitle: "Maswali yanayoulizwa mara kwa mara",
     supportTitle: "Unahitaji msaada?",
     supportText:
-      "Timu yetu inaweza kusaidia kuhusu akaunti, maombi ya huduma, usajili wa mafundi na maswali ya bidhaa.",
+        "Timu yetu inaweza kusaidia kuhusu akaunti, maombi ya huduma, usajili wa mafundi na maswali ya bidhaa.",
     darkMode: "Giza",
     lightMode: "Mwanga"
   }
 };
 
 export const blogSlides = [
-
   {
     img: "/screenshots/map-fundis.png",
     titleEn: "Find fundis on the map",
@@ -130,7 +129,7 @@ export const blogSlides = [
     descSw: "Chuja kwa aina ya huduma — uchunguzi wa gari, umeme, matengenezo na zaidi."
   },
   {
-    img: "/screenshots/dashboard.png",
+    img: "/screenshots/techniciandashboard.png",
     titleEn: "Technician dashboard",
     titleSw: "Dashibodi ya fundi",
     descEn: "Track total, pending and completed requests at a glance.",
@@ -179,14 +178,31 @@ export const partners = [
     url: "https://www.selcom.net/",
     descriptionEn: "Leading payments and financial technology partner in Tanzania and East Africa.",
     descriptionSw: "Mshirika wa malipo na teknolojia ya fedha anayeongoza Tanzania na Afrika Mashariki.",
-    logoText: "Selcom"
+    logoText: "Selcom",
+    logo: "/selcom.png"
   },
   {
     name: "Rafiki SMS",
     url: "https://www.rafikisms.com/",
     descriptionEn: "Messaging, SMS and communication infrastructure powering African apps.",
     descriptionSw: "Miundombinu ya ujumbe, SMS na mawasiliano inayoendesha programu za Afrika.",
-    logoText: "RafikiSMS"
+    logoText: "RafikiSMS",
+    logo: "/refikisms.png"
+  },
+  {
+    name: "Google Play Store",
+    url: "https://play.google.com/store",
+    descriptionEn: "Download the NearbyFundi app on Android.",
+    descriptionSw: "Pakua programu ya NearbyFundi kwenye Android.",
+    logoText: "Google Play",
+    logo: "/googleconsole.png"
+  },
+  {
+    name: "Apple App Store",
+    url: "https://www.apple.com/app-store/",
+    descriptionEn: "Download the NearbyFundi app on iOS.",
+    descriptionSw: "Pakua programu ya NearbyFundi kwenye iOS.",
+    logoText: "App Store",
+    logo: "/apple.png"
   }
-
 ];

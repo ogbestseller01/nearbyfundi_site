@@ -8,38 +8,94 @@
   background: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; }
-button, a { -webkit-tap-highlight-color: transparent; }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
 
 @layer components {
-  .container-page { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10; }
-  .section-pad { @apply py-20 sm:py-24 lg:py-28; }
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-pad {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
   .eyebrow {
     @apply mb-4 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-emerald-700
       dark:bg-emerald-900/40 dark:text-emerald-300;
   }
+
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-bolt-500 px-6 py-3.5 font-bold text-slate-950 transition
-      hover:bg-bolt-400 hover:-translate-y-0.5;
+      hover:bg-bolt-400 hover:-translate-y-0.5 active:translate-y-0;
   }
+
   .btn-dark {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3.5 font-bold text-white transition
-      hover:bg-slate-800 hover:-translate-y-0.5 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200;
+      hover:bg-slate-800 hover:-translate-y-0.5 active:translate-y-0
+      dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200;
   }
+
   .card {
     @apply rounded-3xl border border-slate-200 bg-white shadow-soft
       dark:border-slate-700 dark:bg-slate-900 dark:shadow-soft-dark;
   }
+
+  .glass {
+    @apply border border-white/40 bg-white/70 shadow-lg backdrop-blur-xl
+      dark:border-slate-700/60 dark:bg-slate-900/70;
+  }
 }
 
-.blog-scroll::-webkit-scrollbar { height: 6px; }
-.blog-scroll::-webkit-scrollbar-track { background: transparent; }
+.blog-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.blog-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
 .blog-scroll::-webkit-scrollbar-thumb {
   background: #20c997;
   border-radius: 999px;
 }
 
-::selection { background: #20c997; color: #062e26; }
+::selection {
+  background: #20c997;
+  color: #062e26;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+.lift {
+  @apply transition duration-300 ease-out;
+}
+.lift:hover {
+  @apply -translate-y-1 shadow-lg;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-bolt-600 to-emerald-500 bg-clip-text text-transparent
+    dark:from-bolt-400 dark:to-emerald-300;
+}
