@@ -29,6 +29,7 @@ import type { Lang } from "../data/content";
 import { copy, blogSlides, partners } from "../data/content";
 import { serviceCategories, totalServiceCount } from "../data/services";
 import { Reveal, Stagger, StaggerItem } from "./Motion";
+import AppPlayground from "./AppPlayground";
 
 const categoryIcons: Record<string, LucideIcon> = {
   Building2,
@@ -231,6 +232,9 @@ export default function Sections({
             </div>
           </div>
         </section>
+
+        {/* Interactive app journey — motion toy */}
+        <AppPlayground lang={lang} />
 
         {/* Services */}
         <section id="services" className="section-pad bg-[#f6fbf9] dark:bg-slate-900/40">

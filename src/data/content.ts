@@ -5,6 +5,7 @@ export const copy = {
     nav: {
       home: "Home",
       about: "About",
+      demo: "App journey",
       services: "Services",
       blog: "Blog",
       partners: "Partners",
@@ -18,7 +19,7 @@ export const copy = {
     heroText:
         "NearbyFundi connects customers with nearby technicians and service providers for home, electrical, plumbing, appliance, construction, automotive and maintenance services.",
     find: "Get started",
-    explore: "Explore how it works",
+    explore: "Play the app journey",
     aboutEyebrow: "Built for Tanzania",
     aboutTitle: "Local service discovery, made simple.",
     aboutText:
@@ -60,6 +61,7 @@ export const copy = {
     nav: {
       home: "Mwanzo",
       about: "Kuhusu",
+      demo: "Safari ya app",
       services: "Huduma",
       blog: "Blogu",
       partners: "Washirika",
@@ -73,7 +75,7 @@ export const copy = {
     heroText:
         "NearbyFundi inaunganisha wateja na mafundi na watoa huduma walio karibu kwa huduma za nyumbani, umeme, mabomba, vifaa, ujenzi, magari na matengenezo.",
     find: "Anza sasa",
-    explore: "Jinsi inavyofanya kazi",
+    explore: "Cheza safari ya app",
     aboutEyebrow: "Imejengwa kwa Tanzania",
     aboutTitle: "Kupata huduma za karibu, kwa urahisi.",
     aboutText:
@@ -148,27 +150,6 @@ export const blogSlides = [
     titleSw: "Chagua eneo kwenye ramani",
     descEn: "Precise location picker for service requests across Dar es Salaam.",
     descSw: "Kichagua eneo sahihi kwa maombi ya huduma kote Dar es Salaam."
-  },
-  {
-    img: "/screenshots/registration.png",
-    titleEn: "Registration submitted",
-    titleSw: "Usajili umewasilishwa",
-    descEn: "Pending admin verification with clear next steps for new fundis.",
-    descSw: "Inasubiri uthibitishaji wa admin na hatua zifuatazo wazi kwa mafundi wapya."
-  },
-  {
-    img: "/screenshots/verify-otp.png",
-    titleEn: "OTP verification",
-    titleSw: "Uthibitishaji wa OTP",
-    descEn: "Secure email OTP flow to verify accounts quickly.",
-    descSw: "Mtiririko salama wa OTP kwa barua pepe ili kuthibitisha akaunti haraka."
-  },
-  {
-    img: "/screenshots/email-otp.png",
-    titleEn: "Email verification",
-    titleSw: "Uthibitishaji wa barua pepe",
-    descEn: "Clear OTP delivery and expiry messaging for a smooth onboarding.",
-    descSw: "Ujumbe wazi wa OTP na muda wa kuisha kwa usajili laini."
   }
 ];
 

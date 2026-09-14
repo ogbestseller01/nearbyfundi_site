@@ -35,6 +35,9 @@ export default function Footer({ lang }: { lang: Lang }) {
             <a href="#about" className="block hover:text-white">
               About
             </a>
+            <a href="#app-demo" className="block hover:text-white">
+              App journey
+            </a>
             <a href="#services" className="block hover:text-white">
               Services
             </a>

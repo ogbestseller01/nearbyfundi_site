@@ -135,7 +135,7 @@ export default function Hero({ lang }: { lang: Lang }) {
                         className="transition group-hover:translate-x-0.5 group-hover:translate-y-0.5"
                     />
                   </a>
-                  <a href="#about" className="btn-dark">
+                  <a href="#app-demo" className="btn-dark">
                     {t.explore}
                   </a>
                 </div>
