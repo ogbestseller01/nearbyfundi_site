@@ -4,16 +4,35 @@ import {
   MapPin,
   ShieldCheck,
   Smartphone,
+  Sparkles,
 } from "lucide-react";
 import type { Lang } from "../data/content";
 import { copy } from "../data/content";
 import { motion } from "framer-motion";
 import { Reveal, Stagger, StaggerItem } from "./Motion";
 
+// Floating background bubbles config
+const bubbles = [
+  { size: "w-72 h-72", pos: "-left-20 top-10", color: "bg-emerald-500/20 dark:bg-emerald-500/15", delay: 0, duration: 8 },
+  { size: "w-96 h-96", pos: "-right-24 top-32", color: "bg-teal-400/20 dark:bg-teal-500/10", delay: 1, duration: 10 },
+  { size: "w-80 h-80", pos: "left-1/3 bottom-10", color: "bg-bolt-500/25 dark:bg-bolt-500/15", delay: 2, duration: 9 },
+  { size: "w-64 h-64", pos: "right-1/4 top-1/2", color: "bg-emerald-400/15 dark:bg-teal-400/10", delay: 1.5, duration: 11 },
+];
+
+// Interactive floating small particles/nodes
+const particles = Array.from({ length: 18 }).map((_, i) => ({
+  id: i,
+  size: Math.floor(Math.random() * 6) + 3,
+  x: Math.floor(Math.random() * 100),
+  y: Math.floor(Math.random() * 100),
+  duration: Math.floor(Math.random() * 6) + 6,
+  delay: Math.random() * 3,
+}));
+
 export default function Hero({ lang }: { lang: Lang }) {
   const t = copy[lang];
 
-  // Split headline into words so we can bounce each one
+  // Headline bounce configuration
   const enLine1 = ["Find", "a", "trusted", "fundi."];
   const enLine2 = ["Right", "when", "you", "need", "one."];
   const swLine1 = ["Mpate", "fundi", "unayemwamini,"];
@@ -43,48 +62,79 @@ export default function Hero({ lang }: { lang: Lang }) {
           id="home"
           className="relative overflow-hidden bg-gradient-to-b from-[#f0faf6] via-[#f6fbf9] to-white pt-[74px] dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
       >
-        {/* Animated background orbs */}
+        {/* Dynamic Background Grid & Ambient Motion Bubbles */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <motion.div
-              className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-bolt-500/25 blur-3xl dark:bg-bolt-500/15"
-              animate={{ x: [0, 40, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-              className="absolute -right-20 top-40 h-96 w-96 rounded-full bg-emerald-400/20 blur-3xl dark:bg-emerald-500/10"
-              animate={{ x: [0, -30, 0], y: [0, 50, 0], scale: [1, 1.1, 1] }}
-              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          />
-          <motion.div
-              className="absolute bottom-10 left-1/3 h-64 w-64 rounded-full bg-teal-300/15 blur-3xl dark:bg-teal-500/10"
-              animate={{ y: [0, -25, 0], opacity: [0.5, 0.9, 0.5] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          />
+          {/* Animated Background Gradient Bubbles */}
+          {bubbles.map((b, idx) => (
+              <motion.div
+                  key={idx}
+                  className={`absolute rounded-full blur-3xl ${b.size} ${b.pos} ${b.color}`}
+                  animate={{
+                    y: [0, -35, 0],
+                    x: [0, 25, 0],
+                    scale: [1, 1.15, 1],
+                  }}
+                  transition={{
+                    duration: b.duration,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: b.delay,
+                  }}
+              />
+          ))}
+
+          {/* Floating Accent Dot Particles */}
+          {particles.map((p) => (
+              <motion.div
+                  key={p.id}
+                  className="absolute rounded-full bg-emerald-500/40 dark:bg-emerald-400/30"
+                  style={{
+                    width: p.size,
+                    height: p.size,
+                    left: `${p.x}%`,
+                    top: `${p.y}%`,
+                  }}
+                  animate={{
+                    y: [0, -40, 0],
+                    opacity: [0.2, 0.8, 0.2],
+                    scale: [0.8, 1.3, 0.8],
+                  }}
+                  transition={{
+                    duration: p.duration,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: p.delay,
+                  }}
+              />
+          ))}
+
+          {/* Modern Dot Matrix / Grid Layer */}
           <div
-              className="absolute inset-0 opacity-[0.035] dark:opacity-[0.04]"
+              className="absolute inset-0 opacity-[0.04] dark:opacity-[0.06]"
               style={{
                 backgroundImage:
-                    "linear-gradient(to right, #0f172a 1px, transparent 1px), linear-gradient(to bottom, #0f172a 1px, transparent 1px)",
-                backgroundSize: "48px 48px",
+                    "radial-gradient(circle, #0f172a 1.2px, transparent 1.2px)",
+                backgroundSize: "32px 32px",
               }}
           />
         </div>
 
         <div className="container-page relative grid min-h-[min(860px,100svh)] items-center gap-12 py-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10 lg:py-20">
-          {/* Left copy */}
+          {/* Left Copy Section */}
           <div className="relative z-10">
             <Stagger delay={0.05} stagger={0.1}>
               <StaggerItem>
-              <span className="eyebrow shadow-sm ring-1 ring-emerald-200/60 dark:ring-emerald-800/50">
+              <span className="eyebrow inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-50/80 px-3.5 py-1.5 text-xs font-semibold text-emerald-800 shadow-sm backdrop-blur-md dark:border-emerald-500/30 dark:bg-emerald-950/40 dark:text-emerald-300">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-bolt-500 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-bolt-500" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                 </span>
+                <Sparkles size={14} className="text-emerald-500" />
                 {t.heroEyebrow}
               </span>
               </StaggerItem>
 
-              {/* Bouncing headline */}
+              {/* Bouncing Headline */}
               <h1 className="mt-5 max-w-3xl text-4xl font-black leading-[1.06] tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-[3.5rem] xl:text-6xl dark:text-white">
               <span className="block">
                 {line1.map((word, i) => (
@@ -101,7 +151,7 @@ export default function Hero({ lang }: { lang: Lang }) {
                 ))}
               </span>
 
-                <span className="mt-1 block bg-gradient-to-r from-bolt-600 to-emerald-500 bg-clip-text text-transparent dark:from-bolt-400 dark:to-emerald-300">
+                <span className="mt-1 block bg-gradient-to-r from-emerald-600 via-teal-500 to-bolt-500 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-bolt-400">
                 {line2.map((word, i) => (
                     <motion.span
                         key={`l2-${i}`}
@@ -127,7 +177,7 @@ export default function Hero({ lang }: { lang: Lang }) {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
                       href="#services"
-                      className="btn-primary group shadow-lg shadow-bolt-500/25"
+                      className="btn-primary group shadow-lg shadow-emerald-500/20 transition-all hover:shadow-emerald-500/35"
                   >
                     {t.find}
                     <ArrowDownRight
@@ -152,9 +202,9 @@ export default function Hero({ lang }: { lang: Lang }) {
                   ).map(([Icon, text]) => (
                       <div
                           key={text}
-                          className="flex items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white/70 px-3.5 py-3 text-sm font-bold text-slate-700 shadow-sm backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200"
+                          className="flex items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white/70 px-3.5 py-3 text-sm font-bold text-slate-700 shadow-sm backdrop-blur-md transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-200"
                       >
-                    <span className="grid h-8 w-8 place-items-center rounded-xl bg-bolt-500/15 text-bolt-600 dark:bg-bolt-500/20 dark:text-bolt-400">
+                    <span className="grid h-8 w-8 place-items-center rounded-xl bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
                       <Icon size={16} />
                     </span>
                         {text}
@@ -165,18 +215,32 @@ export default function Hero({ lang }: { lang: Lang }) {
             </Stagger>
           </div>
 
-          {/* Right visual mock – unchanged from your current version */}
+          {/* Right Visual Section with Floating Motion Bubbles */}
           <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
             <Reveal variant="scaleIn" delay={0.25} duration={0.7}>
               <div className="relative">
-                {/* floating badge */}
+                {/* Animated Floating Glow Bubble behind visual card */}
                 <motion.div
-                    className="absolute -left-2 top-8 z-20 flex items-center gap-2 rounded-2xl border border-white/20 bg-white/90 px-3 py-2 shadow-xl backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/90 sm:-left-6"
-                    animate={{ y: [0, -8, 0] }}
+                    className="absolute -inset-4 rounded-[40px] bg-gradient-to-r from-emerald-500/30 via-teal-400/20 to-bolt-500/30 opacity-70 blur-2xl dark:opacity-40"
+                    animate={{
+                      scale: [1, 1.05, 1],
+                      opacity: [0.5, 0.8, 0.5],
+                    }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                />
+
+                {/* Floating Badge 1 - Location */}
+                <motion.div
+                    className="absolute -left-2 top-8 z-20 flex items-center gap-2.5 rounded-2xl border border-white/40 bg-white/80 p-2.5 shadow-xl backdrop-blur-lg dark:border-slate-700/60 dark:bg-slate-900/80 sm:-left-6"
+                    animate={{ y: [0, -10, 0] }}
                     transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
                 >
-                <span className="grid h-9 w-9 place-items-center rounded-xl bg-bolt-500 text-slate-950">
-                  <MapPin size={18} />
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-emerald-500 text-white shadow-md">
+                  <MapPin size={20} />
                 </span>
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
@@ -188,28 +252,34 @@ export default function Hero({ lang }: { lang: Lang }) {
                   </div>
                 </motion.div>
 
+                {/* Floating Badge 2 - Verification */}
                 <motion.div
-                    className="absolute -right-1 bottom-24 z-20 flex items-center gap-2 rounded-2xl border border-white/20 bg-slate-950 px-3 py-2 text-white shadow-xl sm:-right-4"
+                    className="absolute -right-1 bottom-24 z-20 flex items-center gap-2 rounded-2xl border border-white/20 bg-slate-950/90 px-3.5 py-2.5 text-white shadow-2xl backdrop-blur-md sm:-right-4"
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
                 >
-                <span className="text-xs font-bold">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                </span>
+                  <span className="text-xs font-bold text-emerald-400">
                   {lang === "en" ? "Verified fundis" : "Mafundi waliothibitishwa"}
                 </span>
                 </motion.div>
 
-                <div className="absolute -inset-6 rounded-[40px] bg-gradient-to-br from-bolt-500/30 via-emerald-400/20 to-teal-500/10 blur-2xl dark:from-bolt-500/20 dark:via-emerald-500/10" />
-
-                <div className="relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-slate-950 p-3 shadow-2xl ring-1 ring-white/10 dark:border-slate-700 sm:rounded-[32px] sm:p-5">
+                {/* Mockup Card Container */}
+                <div className="relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-slate-950 p-3 shadow-2xl ring-1 ring-white/10 dark:border-slate-800 sm:rounded-[32px] sm:p-5">
                   <div className="mb-4 flex items-center justify-between text-white">
                     <div>
-                      <p className="text-xs font-bold tracking-wide text-bolt-400">NearbyFundi</p>
+                      <p className="text-xs font-bold tracking-wide text-emerald-400">
+                        NearbyFundi
+                      </p>
                       <p className="mt-0.5 text-lg font-black sm:text-xl">
                         {lang === "en" ? "Services, nearby." : "Huduma, karibu."}
                       </p>
                     </div>
                     <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold backdrop-blur">
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-bolt-400" />
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
                       Live
                     </div>
                   </div>
@@ -217,7 +287,7 @@ export default function Hero({ lang }: { lang: Lang }) {
                   <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
                     <motion.div
                         className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900"
-                        whileHover={{ scale: 1.02 }}
+                        whileHover={{ scale: 1.03 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
                       <img
@@ -229,7 +299,7 @@ export default function Hero({ lang }: { lang: Lang }) {
                     </motion.div>
                     <motion.div
                         className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900"
-                        whileHover={{ scale: 1.02 }}
+                        whileHover={{ scale: 1.03 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
                       <img
@@ -242,25 +312,27 @@ export default function Hero({ lang }: { lang: Lang }) {
                   </div>
 
                   <div className="mt-2.5 grid grid-cols-3 gap-2 sm:mt-3 sm:gap-3">
-                    {["/screenshots/search.png", "/screenshots/services-pricing.png", "/screenshots/login.png"].map(
-                        (src, i) => (
-                            <motion.div
-                                key={src}
-                                className="overflow-hidden rounded-xl border border-white/10 bg-slate-900"
-                                initial={{ opacity: 0, y: 12 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 + i * 0.1, duration: 0.45 }}
-                                whileHover={{ scale: 1.03 }}
-                            >
-                              <img
-                                  src={src}
-                                  alt=""
-                                  className="h-16 w-full object-cover object-top sm:h-20"
-                                  loading="lazy"
-                              />
-                            </motion.div>
-                        )
-                    )}
+                    {[
+                      "/screenshots/search.png",
+                      "/screenshots/services-pricing.png",
+                      "/screenshots/login.png",
+                    ].map((src, i) => (
+                        <motion.div
+                            key={src}
+                            className="overflow-hidden rounded-xl border border-white/10 bg-slate-900"
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 + i * 0.1, duration: 0.45 }}
+                            whileHover={{ scale: 1.05 }}
+                        >
+                          <img
+                              src={src}
+                              alt=""
+                              className="h-16 w-full object-cover object-top sm:h-20"
+                              loading="lazy"
+                          />
+                        </motion.div>
+                    ))}
                   </div>
                 </div>
               </div>
