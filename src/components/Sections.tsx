@@ -380,34 +380,45 @@ export default function Sections({ lang }: { lang: Lang; setLang: (l: Lang) => v
           </div>
         </section>
 
-        {/* ───────── Partners ───────── */}
+        {/* ───────── Partners (horizontal redesign) ───────── */}
         <section id="partners" className="section-pad bg-[#f6fbf9] dark:bg-slate-900/40">
           <div className="container-page">
-            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-              <div>
-                <span className="eyebrow">{t.partnersEyebrow}</span>
-                <h2 className="text-4xl font-black tracking-tight sm:text-5xl dark:text-white">{t.partnersTitle}</h2>
-                <p className="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{t.partnersText}</p>
-              </div>
-              <div className="grid gap-5 sm:grid-cols-2">
+            {/* Header */}
+            <Reveal className="mx-auto max-w-3xl text-center">
+              <span className="eyebrow">{t.partnersEyebrow}</span>
+              <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl dark:text-white">
+                {t.partnersTitle}
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
+                {t.partnersText}
+              </p>
+            </Reveal>
+
+            {/* Horizontal partners strip */}
+            <div className="mt-14">
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 md:gap-6">
                 {partners.map((p) => (
                     <a
                         key={p.name}
                         href={p.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-emerald-400 hover:shadow-xl dark:border-slate-700 dark:bg-slate-900"
+                        className="group relative flex min-w-[160px] max-w-[220px] flex-1 flex-col items-center gap-4 rounded-3xl border border-slate-200/80 bg-white px-6 py-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-emerald-400 hover:shadow-xl hover:shadow-emerald-500/10 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-emerald-500/60"
                     >
+                      <PartnerLogo logo={p.logo} logoText={p.logoText} />
+
                       <div>
-                        <div className="flex items-center justify-between">
-                          <PartnerLogo logo={p.logo} logoText={p.logoText} />
-                          <ExternalLink size={18} className="text-slate-400 transition group-hover:text-emerald-600" />
-                        </div>
-                        <h3 className="mt-6 text-2xl font-black dark:text-white">{p.name}</h3>
-                        <p className="mt-3 leading-7 text-slate-500 dark:text-slate-400">{en ? p.descriptionEn : p.descriptionSw}</p>
+                        <h3 className="text-base font-black text-slate-900 dark:text-white">
+                          {p.name}
+                        </h3>
+                        <p className="mt-1.5 line-clamp-2 text-xs leading-5 text-slate-500 dark:text-slate-400">
+                          {en ? p.descriptionEn : p.descriptionSw}
+                        </p>
                       </div>
-                      <span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-emerald-700 dark:text-emerald-400">
-                    {en ? "Visit website" : "Tembelea tovuti"} <ArrowRight size={15} className="transition group-hover:translate-x-1" />
+
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 opacity-0 transition group-hover:opacity-100 dark:text-emerald-400">
+                    {en ? "Visit website" : "Tembelea tovuti"}
+                        <ExternalLink size={13} className="transition group-hover:translate-x-0.5" />
                   </span>
                     </a>
                 ))}
