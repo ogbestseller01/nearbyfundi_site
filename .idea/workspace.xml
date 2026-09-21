@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e9b2319-8c83-4d5c-8721-6ac11b0c654c" name="Changes" comment="" />
+    <list default="true" id="1e9b2319-8c83-4d5c-8721-6ac11b0c654c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppPlayground.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppPlayground.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +84,7 @@
       <workItem from="1789187630009" duration="4737000" />
       <workItem from="1789241330654" duration="26000" />
       <workItem from="1789378694157" duration="1509000" />
-      <workItem from="1789970437472" duration="1321000" />
+      <workItem from="1789970437472" duration="2639000" />
     </task>
     <servers />
   </component>

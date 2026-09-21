@@ -1,16 +1,16 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
-  Play,
-  Pause,
   ChevronLeft,
   ChevronRight,
-  UserPlus,
+  ClipboardList,
   LogIn,
   MapPin,
-  Search,
-  ClipboardList,
   Navigation,
+  Pause,
+  Play,
   RotateCcw,
+  Search,
+  UserPlus,
   Hand,
 } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -98,312 +98,307 @@ const STEPS: Step[] = [
   },
 ];
 
+const STEP_MS = 4500;
+
 type Props = { lang: Lang };
 
 export default function AppPlayground({ lang }: Props) {
   const [step, setStep] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [direction, setDirection] = useState(1);
-  const stripRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
 
   const current = STEPS[step];
-  const Icon = current.icon;
+  const en = lang === "en";
 
   const go = useCallback(
-    (next: number) => {
-      const clamped = ((next % STEPS.length) + STEPS.length) % STEPS.length;
-      setDirection(clamped > step || (step === STEPS.length - 1 && clamped === 0) ? 1 : -1);
-      setStep(clamped);
-    },
-    [step]
+      (to: number) => {
+        const n = ((to % STEPS.length) + STEPS.length) % STEPS.length;
+        setDirection(to > step ? 1 : -1);
+        setStep(n);
+      },
+      [step]
   );
 
-  const next = useCallback(() => go(step + 1), [go, step]);
-  const prev = useCallback(() => go(step - 1), [go, step]);
-
+  // Auto-advance; restarts each time the step changes
   useEffect(() => {
     if (!playing || reduce) return;
-    const t = setInterval(() => {
+    const id = setTimeout(() => {
       setDirection(1);
       setStep((s) => (s + 1) % STEPS.length);
-    }, 3500);
-    return () => clearInterval(t);
-  }, [playing, reduce]);
-
-  useEffect(() => {
-    const el = stripRef.current;
-    if (!el) return;
-    const card = el.children[step] as HTMLElement | undefined;
-    if (!card) return;
-    const left = card.offsetLeft - (el.clientWidth - card.clientWidth) / 2;
-    el.scrollTo({ left, behavior: "smooth" });
-  }, [step]);
+    }, STEP_MS);
+    return () => clearTimeout(id);
+  }, [playing, reduce, step]);
 
   const t = {
-    eyebrow: lang === "en" ? "App journey" : "Safari ya app",
-    title: lang === "en" ? "Play the app journey." : "Cheza safari ya programu.",
-    subtitle:
-      lang === "en"
-        ? "Scroll or tap through the real NearbyFundi flow — sign up, login, pick location, find a fundi, manage requests and live-track. A motion toy of the mobile experience."
-        : "Scroll au gusa kupitia mtiririko halisi wa NearbyFundi — jisajili, ingia, chagua eneo, tafuta fundi, simamia maombi na ufuatiliaji wa moja kwa moja.",
-    play: lang === "en" ? "Auto-play" : "Cheza kiotomatiki",
-    pause: lang === "en" ? "Pause" : "Simamisha",
-    reset: lang === "en" ? "Restart" : "Anza upya",
-    stepOf: lang === "en" ? "Step" : "Hatua",
-    of: lang === "en" ? "of" : "kati ya",
-    tip: lang === "en" ? "Try this" : "Jaribu hivi",
-    scrollHint: lang === "en" ? "Swipe phones or use arrows" : "Telezesha simu au tumia mishale",
+    title: en ? "See the whole job, start to finish." : "Ona kazi nzima, kuanzia mwanzo hadi mwisho.",
+    subtitle: en
+        ? "Follow a real NearbyFundi booking: sign up, share your location, pick a fundi and watch them arrive."
+        : "Fuata mchakato halisi wa NearbyFundi: jisajili, weka eneo lako, chagua fundi na umwone akiwasili.",
+    play: en ? "Play" : "Cheza",
+    pause: en ? "Pause" : "Simamisha",
+    restart: en ? "Restart" : "Anza upya",
+    tip: en ? "Try this:" : "Jaribu hivi:",
+    swipe: en ? "Swipe the phone or pick a step" : "Telezesha simu au chagua hatua",
+    step: en ? "Step" : "Hatua",
+    of: en ? "of" : "kati ya",
   };
 
-  const slideVariants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 60 : -60,
-      opacity: 0,
-      scale: 0.94,
-    }),
+  const slide = {
+    enter: (d: number) => ({ x: d > 0 ? 70 : -70, opacity: 0, scale: 0.96 }),
     center: { x: 0, opacity: 1, scale: 1 },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -60 : 60,
-      opacity: 0,
-      scale: 0.94,
-    }),
+    exit: (d: number) => ({ x: d > 0 ? -70 : 70, opacity: 0, scale: 0.96 }),
   };
 
   return (
-    <section
-      id="app-demo"
-      className="relative overflow-hidden section-pad bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white"
-    >
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-bolt-500/20 blur-3xl" />
-        <div className="absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-emerald-500/15 blur-3xl" />
-        <div className="absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-2xl" />
-      </div>
-
-      <div className="container-page relative">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow !bg-bolt-500/20 !text-bolt-300">{t.eyebrow}</span>
-          <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">{t.title}</h2>
-          <p className="mt-5 text-lg leading-8 text-slate-300">{t.subtitle}</p>
-        </Reveal>
-
-        <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-2">
-          {STEPS.map((s, i) => {
-            const active = i === step;
-            const done = i < step;
-            return (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => {
-                  setPlaying(false);
-                  go(i);
-                }}
-                className={`inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-xs font-bold transition sm:text-sm ${
-                  active
-                    ? "bg-bolt-500 text-slate-950 shadow-lg shadow-bolt-500/30"
-                    : done
-                      ? "bg-white/15 text-white hover:bg-white/25"
-                      : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                <span
-                  className={`grid h-5 w-5 place-items-center rounded-full text-[10px] ${
-                    active ? "bg-slate-950/20" : done ? "bg-bolt-500/40 text-bolt-200" : "bg-white/10"
-                  }`}
-                >
-                  {i + 1}
-                </span>
-                <span className="hidden sm:inline">{lang === "en" ? s.titleEn : s.titleSw}</span>
-              </button>
-            );
-          })}
+      <section
+          id="app-demo"
+          className="relative overflow-hidden section-pad bg-slate-950 text-white"
+      >
+        {/* Ambient light + fine grid */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-40 top-0 h-[28rem] w-[28rem] rounded-full bg-emerald-500/15 blur-3xl" />
+          <div className="absolute -right-32 bottom-0 h-[30rem] w-[30rem] rounded-full bg-amber-400/10 blur-3xl" />
+          <div
+              className="absolute inset-0 opacity-[0.06]"
+              style={{
+                backgroundImage:
+                    "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                backgroundSize: "56px 56px",
+                maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+                WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+              }}
+          />
         </div>
 
-        <div className="relative mt-10">
-          <p className="mb-4 flex items-center justify-center gap-2 text-xs font-medium text-slate-400">
-            <Hand size={14} className="text-bolt-400" />
-            {t.scrollHint}
-          </p>
+        <div className="container-page relative grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+          {/* ---------- Left: story + step rail ---------- */}
+          <div className="order-2 lg:order-1">
+            <Reveal>
+              <h2 className="max-w-xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl">
+                {t.title}
+              </h2>
+              <p className="mt-5 max-w-lg text-lg leading-8 text-slate-300">{t.subtitle}</p>
+            </Reveal>
 
-          <div
-            ref={stripRef}
-            className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-[max(1rem,calc(50%-140px))] pb-4"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-            onScroll={() => setPlaying(false)}
-          >
-            {STEPS.map((s, i) => {
-              const active = i === step;
-              return (
-                <button
-                  key={s.id}
+            {/* Step rail */}
+            <ol className="mt-10 space-y-1">
+              {STEPS.map((s, i) => {
+                const active = i === step;
+                const done = i < step;
+                const Icon = s.icon;
+                return (
+                    <li key={s.id} className="relative pl-7">
+                      {/* rail track */}
+                      <span className="absolute bottom-0 left-0 top-0 w-[3px] rounded-full bg-white/10" />
+                      {/* rail fill: full when done, timed when active */}
+                      {done && (
+                          <span className="absolute bottom-0 left-0 top-0 w-[3px] rounded-full bg-emerald-400/70" />
+                      )}
+                      {active && (
+                          <motion.span
+                              key={`${s.id}-${playing}`}
+                              className="absolute left-0 top-0 w-[3px] origin-top rounded-full bg-gradient-to-b from-emerald-300 to-amber-300"
+                              style={{ height: "100%" }}
+                              initial={{ scaleY: playing && !reduce ? 0 : 1 }}
+                              animate={{ scaleY: 1 }}
+                              transition={{ duration: playing && !reduce ? STEP_MS / 1000 : 0.2, ease: "linear" }}
+                          />
+                      )}
+
+                      <button
+                          type="button"
+                          onClick={() => {
+                            setPlaying(false);
+                            go(i);
+                          }}
+                          aria-current={active ? "step" : undefined}
+                          className="group flex w-full items-start gap-4 rounded-2xl px-3 py-3.5 text-left transition hover:bg-white/[0.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-300"
+                      >
+                    <span
+                        className={`mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl transition ${
+                            active
+                                ? "bg-emerald-400 text-slate-950 shadow-lg shadow-emerald-400/30"
+                                : done
+                                    ? "bg-emerald-400/15 text-emerald-300"
+                                    : "bg-white/5 text-slate-400 group-hover:text-white"
+                        }`}
+                    >
+                      <Icon size={19} strokeWidth={2.2} />
+                    </span>
+
+                        <span className="min-w-0 flex-1">
+                      <span
+                          className={`block text-base font-extrabold transition sm:text-lg ${
+                              active ? "text-white" : "text-slate-400 group-hover:text-slate-200"
+                          }`}
+                      >
+                        {en ? s.titleEn : s.titleSw}
+                      </span>
+
+                      <AnimatePresence initial={false}>
+                        {active && (
+                            <motion.span
+                                key="body"
+                                initial={reduce ? false : { height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={reduce ? undefined : { height: 0, opacity: 0 }}
+                                transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+                                className="block overflow-hidden"
+                            >
+                            <span className="mt-1.5 block max-w-md text-sm leading-6 text-slate-300">
+                              {en ? s.descEn : s.descSw}
+                            </span>
+                              <span className="mt-3 inline-flex flex-wrap items-center gap-x-2 rounded-lg bg-white/[0.06] px-3 py-1.5 text-sm">
+                              <span className="font-semibold text-amber-300">{t.tip}</span>
+                              <span className="font-medium text-white">{en ? s.tipEn : s.tipSw}</span>
+                            </span>
+                            </motion.span>
+                        )}
+                      </AnimatePresence>
+                    </span>
+                      </button>
+                    </li>
+                );
+              })}
+            </ol>
+
+            {/* Controls */}
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <button
                   type="button"
                   onClick={() => {
                     setPlaying(false);
-                    go(i);
+                    go(step - 1);
                   }}
-                  className={`snap-center shrink-0 transition-all duration-300 ${
-                    active ? "scale-100 opacity-100" : "scale-90 opacity-50 hover:opacity-80"
-                  }`}
-                >
-                  <div
-                    className={`relative w-[260px] sm:w-[280px] ${
-                      active ? "drop-shadow-[0_20px_40px_rgba(32,201,151,0.25)]" : ""
-                    }`}
-                  >
-                    {active && (
-                      <div className="absolute -inset-4 rounded-[48px] bg-gradient-to-br from-bolt-500/30 via-emerald-400/15 to-cyan-400/20 blur-xl" />
-                    )}
-                    <div className="relative rounded-[36px] border-[7px] border-slate-800 bg-slate-950 p-1 shadow-2xl ring-1 ring-white/10">
-                      <div className="overflow-hidden rounded-[28px] bg-slate-900">
-                        <div className="mx-auto mt-1.5 h-4 w-20 rounded-full bg-slate-950" />
-                        <div className="relative aspect-[9/19] w-full overflow-hidden">
-                          <img
-                            src={s.img}
-                            alt={lang === "en" ? s.titleEn : s.titleSw}
-                            className="absolute inset-0 h-full w-full object-cover object-top"
-                            draggable={false}
-                            loading={i === 0 ? "eager" : "lazy"}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <p
-                      className={`mt-3 text-center text-sm font-bold ${
-                        active ? "text-bolt-300" : "text-slate-500"
-                      }`}
-                    >
-                      {lang === "en" ? s.titleEn : s.titleSw}
-                    </p>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="mt-8 grid items-start gap-8 lg:grid-cols-[1fr_auto_1fr]">
-          <div className="hidden lg:block" />
-
-          <div className="flex flex-col items-center">
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setPlaying(false);
-                  prev();
-                }}
-                className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/10 text-white transition hover:bg-white/20"
-                aria-label="Previous"
+                  aria-label="Previous"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5 transition hover:bg-white/15"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
-                type="button"
-                onClick={() => setPlaying((p) => !p)}
-                className="inline-flex h-11 items-center gap-2 rounded-full bg-bolt-500 px-5 font-bold text-slate-950 transition hover:bg-bolt-400"
+                  type="button"
+                  onClick={() => setPlaying((p) => !p)}
+                  className="inline-flex h-11 items-center gap-2 rounded-full bg-emerald-400 px-5 font-bold text-slate-950 transition hover:bg-emerald-300"
               >
                 {playing ? <Pause size={16} /> : <Play size={16} />}
                 {playing ? t.pause : t.play}
               </button>
               <button
-                type="button"
-                onClick={() => {
-                  setPlaying(false);
-                  next();
-                }}
-                className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/10 text-white transition hover:bg-white/20"
-                aria-label="Next"
+                  type="button"
+                  onClick={() => {
+                    setPlaying(false);
+                    go(step + 1);
+                  }}
+                  aria-label="Next"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5 transition hover:bg-white/15"
               >
                 <ChevronRight size={20} />
               </button>
               <button
-                type="button"
-                onClick={() => {
-                  setPlaying(false);
-                  setDirection(-1);
-                  setStep(0);
-                }}
-                className="ml-1 grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5 text-slate-300 transition hover:bg-white/15"
-                aria-label={t.reset}
-                title={t.reset}
+                  type="button"
+                  onClick={() => {
+                    setDirection(-1);
+                    setStep(0);
+                    setPlaying(true);
+                  }}
+                  aria-label={t.restart}
+                  title={t.restart}
+                  className="grid h-11 w-11 place-items-center rounded-full text-slate-400 transition hover:bg-white/10 hover:text-white"
               >
                 <RotateCcw size={16} />
               </button>
+              <span className="ml-1 text-sm font-medium text-slate-400">
+              {t.step} {step + 1} {t.of} {STEPS.length}
+            </span>
             </div>
+          </div>
 
-            <p className="mt-4 text-xs font-medium text-slate-400">
-              {t.stepOf} {step + 1} {t.of} {STEPS.length}
-            </p>
-            <div className="mt-3 h-1.5 w-48 overflow-hidden rounded-full bg-white/10">
+          {/* ---------- Right: one big phone ---------- */}
+          <div className="order-1 flex flex-col items-center lg:order-2">
+            <div className="relative w-[280px] sm:w-[310px]">
+              {/* glow */}
               <motion.div
-                className="h-full rounded-full bg-gradient-to-r from-bolt-400 to-emerald-400"
-                initial={false}
-                animate={{ width: `${((step + 1) / STEPS.length) * 100}%` }}
-                transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                  className="absolute -inset-8 rounded-[64px] bg-gradient-to-br from-emerald-400/30 via-teal-400/15 to-amber-300/25 blur-2xl"
+                  animate={reduce ? undefined : { opacity: [0.6, 1, 0.6], scale: [1, 1.04, 1] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               />
-            </div>
-          </div>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current.id}
-              initial={reduce ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduce ? undefined : { opacity: 0, y: -8 }}
-              transition={{ duration: 0.3 }}
-              className="mx-auto w-full max-w-sm rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm lg:mx-0"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-bolt-500 text-slate-950 shadow-lg shadow-bolt-500/30">
-                <Icon size={22} strokeWidth={2.2} />
-              </div>
-              <h3 className="mt-4 text-xl font-black">
-                {lang === "en" ? current.titleEn : current.titleSw}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-300">
-                {lang === "en" ? current.descEn : current.descSw}
-              </p>
-              <div className="mt-4 rounded-2xl border border-bolt-400/30 bg-bolt-500/10 px-3.5 py-2.5">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-bolt-300">
-                  {t.tip}
-                </p>
-                <p className="mt-0.5 text-sm font-semibold text-white">
-                  {lang === "en" ? current.tipEn : current.tipSw}
-                </p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+              {/* floating step badge */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                    key={current.id}
+                    initial={reduce ? false : { opacity: 0, y: 10, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={reduce ? undefined : { opacity: 0, y: -10, scale: 0.9 }}
+                    transition={{ type: "spring", stiffness: 380, damping: 18 }}
+                    className="absolute -left-4 top-14 z-20 flex items-center gap-2.5 rounded-2xl border border-white/15 bg-slate-900/90 py-2 pl-2 pr-4 shadow-2xl backdrop-blur sm:-left-14"
+                >
+                <span className="grid h-9 w-9 place-items-center rounded-xl bg-emerald-400 text-slate-950">
+                  <current.icon size={18} strokeWidth={2.4} />
+                </span>
+                  <span className="text-sm font-extrabold">{en ? current.titleEn : current.titleSw}</span>
+                </motion.div>
+              </AnimatePresence>
 
-        <div className="mt-12 hidden justify-center lg:flex">
-          <div className="relative w-[300px]">
-            <div className="absolute -inset-6 rounded-[52px] bg-gradient-to-br from-bolt-500/25 via-emerald-400/15 to-cyan-400/15 blur-2xl" />
-            <div className="relative rounded-[40px] border-[8px] border-slate-800 bg-slate-950 p-1.5 shadow-2xl ring-1 ring-white/10">
-              <div className="relative overflow-hidden rounded-[32px] bg-slate-900">
-                <div className="absolute left-1/2 top-2 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-slate-950" />
-                <div className="relative aspect-[9/19] w-full overflow-hidden">
-                  <AnimatePresence initial={false} custom={direction} mode="wait">
-                    <motion.img
-                      key={current.id}
-                      src={current.img}
-                      alt={lang === "en" ? current.titleEn : current.titleSw}
-                      custom={direction}
-                      variants={reduce ? undefined : slideVariants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                      className="absolute inset-0 h-full w-full object-cover object-top"
-                      draggable={false}
-                    />
-                  </AnimatePresence>
+              {/* phone (draggable to swipe between steps) */}
+              <motion.div
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.25}
+                  onDragEnd={(_, info) => {
+                    if (Math.abs(info.offset.x) < 60) return;
+                    setPlaying(false);
+                    go(info.offset.x < 0 ? step + 1 : step - 1);
+                  }}
+                  className="relative cursor-grab touch-pan-y rounded-[44px] border-[9px] border-slate-800 bg-slate-950 p-1.5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/10 active:cursor-grabbing"
+              >
+                <div className="relative overflow-hidden rounded-[34px] bg-slate-900">
+                  <div className="absolute left-1/2 top-2 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-slate-950" />
+                  <div className="relative aspect-[9/19] w-full overflow-hidden">
+                    <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                      <motion.img
+                          key={current.id}
+                          src={current.img}
+                          alt={en ? current.titleEn : current.titleSw}
+                          custom={direction}
+                          variants={reduce ? undefined : slide}
+                          initial="enter"
+                          animate="center"
+                          exit="exit"
+                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          className="absolute inset-0 h-full w-full select-none object-cover object-top"
+                          draggable={false}
+                      />
+                    </AnimatePresence>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
+
+            {/* dots + hint */}
+            <div className="mt-8 flex items-center gap-2">
+              {STEPS.map((s, i) => (
+                  <button
+                      key={s.id}
+                      type="button"
+                      aria-label={`${t.step} ${i + 1}`}
+                      onClick={() => {
+                        setPlaying(false);
+                        go(i);
+                      }}
+                      className={`h-2 rounded-full transition-all ${
+                          i === step ? "w-8 bg-emerald-400" : "w-2 bg-white/25 hover:bg-white/50"
+                      }`}
+                  />
+              ))}
+            </div>
+            <p className="mt-4 flex items-center gap-2 text-xs font-medium text-slate-400">
+              <Hand size={14} className="text-emerald-300" />
+              {t.swipe}
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 }
