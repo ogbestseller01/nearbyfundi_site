@@ -11,23 +11,39 @@ import { copy } from "../data/content";
 import { motion } from "framer-motion";
 import { Reveal, Stagger, StaggerItem } from "./Motion";
 
-// Floating background bubbles config
-const bubbles = [
-  { size: "w-72 h-72", pos: "-left-20 top-10", color: "bg-emerald-500/20 dark:bg-emerald-500/15", delay: 0, duration: 8 },
-  { size: "w-96 h-96", pos: "-right-24 top-32", color: "bg-teal-400/20 dark:bg-teal-500/10", delay: 1, duration: 10 },
-  { size: "w-80 h-80", pos: "left-1/3 bottom-10", color: "bg-bolt-500/25 dark:bg-bolt-500/15", delay: 2, duration: 9 },
-  { size: "w-64 h-64", pos: "right-1/4 top-1/2", color: "bg-emerald-400/15 dark:bg-teal-400/10", delay: 1.5, duration: 11 },
+// Constellation / Node Network coordinates mapped to roughly form the African continent (view 0..100)
+const continentNodes = [
+  { id: "n1", x: 38, y: 12 },  // North Africa (West)
+  { id: "n2", x: 48, y: 14 },  // North Central
+  { id: "n3", x: 58, y: 16 },  // Horn / East North
+  { id: "n4", x: 22, y: 32 },  // West Africa Tip
+  { id: "n5", x: 34, y: 38 },  // West Africa Inward
+  { id: "n6", x: 46, y: 34 },  // Central North
+  { id: "n7", x: 56, y: 33 },  // East Africa North
+  { id: "n8", x: 68, y: 44 },  // Horn Tip
+  { id: "n9", x: 50, y: 56 },  // Central Africa
+  { id: "n10", x: 62, y: 54 }, // East Africa / Coast
+  { id: "n11", x: 42, y: 68 }, // West South
+  { id: "n12", x: 58, y: 72 }, // South East
+  { id: "n13", x: 43, y: 84 }, // Southern Tip
+  { id: "n14", x: 52, y: 94 }, // Cape South
+  { id: "n15", x: 74, y: 80 }, // Madagascar
 ];
 
-// Interactive floating small particles/nodes
-const particles = Array.from({ length: 18 }).map((_, i) => ({
-  id: i,
-  size: Math.floor(Math.random() * 6) + 3,
-  x: Math.floor(Math.random() * 100),
-  y: Math.floor(Math.random() * 100),
-  duration: Math.floor(Math.random() * 6) + 6,
-  delay: Math.random() * 3,
-}));
+// Node Connections / Line Segments
+const nodeConnections = [
+  ["n1", "n2"], ["n2", "n3"], ["n1", "n4"], ["n4", "n5"], ["n5", "n6"],
+  ["n2", "n6"], ["n3", "n7"], ["n6", "n7"], ["n7", "n8"], ["n6", "n9"],
+  ["n7", "n9"], ["n7", "n10"], ["n9", "n10"], ["n9", "n11"], ["n9", "n12"],
+  ["n11", "n13"], ["n12", "n13"], ["n13", "n14"], ["n12", "n15"], ["n10", "n12"]
+];
+
+// Background Floating Glow Bubbles
+const bubbles = [
+  { size: "w-80 h-80", pos: "-left-20 top-10", color: "bg-emerald-500/20 dark:bg-emerald-500/15", delay: 0, duration: 8 },
+  { size: "w-96 h-96", pos: "-right-24 top-32", color: "bg-amber-500/15 dark:bg-amber-500/10", delay: 1, duration: 10 },
+  { size: "w-80 h-80", pos: "left-1/3 bottom-10", color: "bg-bolt-500/20 dark:bg-bolt-500/15", delay: 2, duration: 9 },
+];
 
 export default function Hero({ lang }: { lang: Lang }) {
   const t = copy[lang];
@@ -62,9 +78,9 @@ export default function Hero({ lang }: { lang: Lang }) {
           id="home"
           className="relative overflow-hidden bg-gradient-to-b from-[#f0faf6] via-[#f6fbf9] to-white pt-[74px] dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
       >
-        {/* Dynamic Background Grid & Ambient Motion Bubbles */}
+        {/* Dynamic Background Network Graph & Ambient Motion Bubbles */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          {/* Animated Background Gradient Bubbles */}
+          {/* Animated Background Blur Orbs */}
           {bubbles.map((b, idx) => (
               <motion.div
                   key={idx}
@@ -83,34 +99,65 @@ export default function Hero({ lang }: { lang: Lang }) {
               />
           ))}
 
-          {/* Floating Accent Dot Particles */}
-          {particles.map((p) => (
-              <motion.div
-                  key={p.id}
-                  className="absolute rounded-full bg-emerald-500/40 dark:bg-emerald-400/30"
-                  style={{
-                    width: p.size,
-                    height: p.size,
-                    left: `${p.x}%`,
-                    top: `${p.y}%`,
-                  }}
-                  animate={{
-                    y: [0, -40, 0],
-                    opacity: [0.2, 0.8, 0.2],
-                    scale: [0.8, 1.3, 0.8],
-                  }}
-                  transition={{
-                    duration: p.duration,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: p.delay,
-                  }}
-              />
-          ))}
+          {/* African Node Constellation Network (SVG Graph) */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-30 dark:opacity-40">
+            <svg className="h-full w-full max-w-6xl" viewBox="0 0 100 100" preserveAspectRatio="none">
+              {/* Network Connections */}
+              {nodeConnections.map(([fromId, toId], idx) => {
+                const startNode = continentNodes.find((n) => n.id === fromId)!;
+                const endNode = continentNodes.find((n) => n.id === toId)!;
+                return (
+                    <motion.line
+                        key={`line-${idx}`}
+                        x1={startNode.x}
+                        y1={startNode.y}
+                        x2={endNode.x}
+                        y2={endNode.y}
+                        stroke="currentColor"
+                        className="text-amber-500/60 dark:text-amber-400/50"
+                        strokeWidth="0.3"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{ pathLength: 1, opacity: [0.3, 0.8, 0.3] }}
+                        transition={{
+                          pathLength: { duration: 2, delay: idx * 0.05 },
+                          opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                        }}
+                    />
+                );
+              })}
 
-          {/* Modern Dot Matrix / Grid Layer */}
+              {/* Network Node Dots */}
+              {continentNodes.map((node, idx) => (
+                  <g key={node.id}>
+                    {/* Pulsing Outer Ring */}
+                    <motion.circle
+                        cx={node.x}
+                        cy={node.y}
+                        r="1.2"
+                        className="fill-amber-400/20 dark:fill-amber-300/30"
+                        animate={{ scale: [1, 2.2, 1], opacity: [0.4, 0.9, 0.4] }}
+                        transition={{
+                          duration: 3 + (idx % 3),
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: idx * 0.15,
+                        }}
+                    />
+                    {/* Glowing Core Node Point */}
+                    <circle
+                        cx={node.x}
+                        cy={node.y}
+                        r="0.6"
+                        className="fill-amber-500 dark:fill-amber-300 shadow-lg"
+                    />
+                  </g>
+              ))}
+            </svg>
+          </div>
+
+          {/* Modern Dot Matrix Texture */}
           <div
-              className="absolute inset-0 opacity-[0.04] dark:opacity-[0.06]"
+              className="absolute inset-0 opacity-[0.035] dark:opacity-[0.05]"
               style={{
                 backgroundImage:
                     "radial-gradient(circle, #0f172a 1.2px, transparent 1.2px)",
@@ -151,7 +198,7 @@ export default function Hero({ lang }: { lang: Lang }) {
                 ))}
               </span>
 
-                <span className="mt-1 block bg-gradient-to-r from-emerald-600 via-teal-500 to-bolt-500 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-bolt-400">
+                <span className="mt-1 block bg-gradient-to-r from-emerald-600 via-teal-500 to-amber-500 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-300 dark:to-amber-300">
                 {line2.map((word, i) => (
                     <motion.span
                         key={`l2-${i}`}
@@ -215,13 +262,13 @@ export default function Hero({ lang }: { lang: Lang }) {
             </Stagger>
           </div>
 
-          {/* Right Visual Section with Floating Motion Bubbles */}
+          {/* Right Visual Section with Floating Motion Badges & Glassmorphism */}
           <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
             <Reveal variant="scaleIn" delay={0.25} duration={0.7}>
               <div className="relative">
-                {/* Animated Floating Glow Bubble behind visual card */}
+                {/* Glow Bubble behind visual card */}
                 <motion.div
-                    className="absolute -inset-4 rounded-[40px] bg-gradient-to-r from-emerald-500/30 via-teal-400/20 to-bolt-500/30 opacity-70 blur-2xl dark:opacity-40"
+                    className="absolute -inset-4 rounded-[40px] bg-gradient-to-r from-emerald-500/25 via-amber-500/20 to-teal-500/25 opacity-70 blur-2xl dark:opacity-40"
                     animate={{
                       scale: [1, 1.05, 1],
                       opacity: [0.5, 0.8, 0.5],
@@ -267,7 +314,7 @@ export default function Hero({ lang }: { lang: Lang }) {
                 </span>
                 </motion.div>
 
-                {/* Mockup Card Container */}
+                {/* Mockup Container Card */}
                 <div className="relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-slate-950 p-3 shadow-2xl ring-1 ring-white/10 dark:border-slate-800 sm:rounded-[32px] sm:p-5">
                   <div className="mb-4 flex items-center justify-between text-white">
                     <div>
