@@ -55,10 +55,10 @@ const STEPS: Step[] = [
   {
     id: "location",
     img: "/screenshots/journey-pick-location.png",
-    titleEn: "Pick location",
-    titleSw: "Chagua eneo",
-    descEn: "Drop a pin on the map (Dar es Salaam and beyond). Tap Use this location to continue.",
-    descSw: "Weka alama kwenye ramani (Dar es Salaam na kwingineko). Gusa Tumia eneo hili kuendelea.",
+    titleEn: "Pick your location",
+    titleSw: "Chagua eneo lako",
+    descEn: "Drop a pin on the map. NearbyFundi uses your location to show fundis and services near you.",
+    descSw: "Weka alama kwenye ramani. NearbyFundi inatumia eneo lako kuonyesha mafundi na huduma zilizo karibu.",
     icon: MapPin,
     tipEn: "Tap map → Use this location",
     tipSw: "Gusa ramani → Tumia eneo hili",
@@ -66,21 +66,21 @@ const STEPS: Step[] = [
   {
     id: "find",
     img: "/screenshots/journey-find-fundi.png",
-    titleEn: "Find Fundi",
-    titleSw: "Tafuta Fundi",
-    descEn: "See technicians near you on the map. Filter by service — AC repair, gas refill, and more.",
-    descSw: "Ona mafundi karibu nawe kwenye ramani. Chuja kwa huduma — ukarabati wa AC, gas, na zaidi.",
+    titleEn: "Choose a service & view fundis",
+    titleSw: "Chagua huduma na ona mafundi",
+    descEn: "Select the service you need, then see verified fundis near you on the map with distance and ratings.",
+    descSw: "Chagua huduma unayohitaji, kisha ona mafundi waliothibitishwa karibu nawe kwenye ramani yenye umbali na tathmini.",
     icon: Search,
-    tipEn: "Filter service → tap a pin",
-    tipSw: "Chuja huduma → gusa alama",
+    tipEn: "Filter service → tap a fundi",
+    tipSw: "Chuja huduma → gusa fundi",
   },
   {
     id: "requests",
     img: "/screenshots/journey-requests.png",
-    titleEn: "Your requests",
-    titleSw: "Maombi yako",
-    descEn: "Track accepted, pending and completed jobs. Open details or cancel when needed.",
-    descSw: "Fuatilia kazi zilizokubaliwa, zinazosubiri na zilizokamilika. Fungua maelezo au batilisha.",
+    titleEn: "Book a nearby fundi",
+    titleSw: "Weka ombi kwa fundi wa karibu",
+    descEn: "Send a service request, track status (pending, accepted, completed) and manage your bookings.",
+    descSw: "Tuma ombi la huduma, fuatilia hali (linasubiri, limekubaliwa, limekamilika) na simamia maombi yako.",
     icon: ClipboardList,
     tipEn: "Track or View Details",
     tipSw: "Fuatilia au Angalia Maelezo",
@@ -90,8 +90,8 @@ const STEPS: Step[] = [
     img: "/screenshots/journey-live-tracking.png",
     titleEn: "Live tracking",
     titleSw: "Ufuatiliaji wa moja kwa moja",
-    descEn: "Watch your fundi on the map in real time — distance, ETA, speed and status.",
-    descSw: "Fuatilia fundi wako kwenye ramani kwa wakati halisi — umbali, ETA, kasi na hali.",
+    descEn: "Watch your fundi on the map in real time — distance, ETA, speed and job status until the work is done.",
+    descSw: "Fuatilia fundi wako kwenye ramani kwa wakati halisi — umbali, ETA, kasi na hali ya kazi hadi ikamilike.",
     icon: Navigation,
     tipEn: "Live map until job done",
     tipSw: "Ramani hai hadi kazi iishe",
@@ -102,7 +102,7 @@ const STEP_MS = 4500;
 
 type Props = { lang: Lang };
 
-export default function AppPlayground({ lang }: Props) {
+export default function NearByFindiAppPlayground({ lang }: Props) {
   const [step, setStep] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [direction, setDirection] = useState(1);
@@ -120,7 +120,6 @@ export default function AppPlayground({ lang }: Props) {
       [step]
   );
 
-  // Auto-advance; restarts each time the step changes
   useEffect(() => {
     if (!playing || reduce) return;
     const id = setTimeout(() => {
@@ -131,10 +130,13 @@ export default function AppPlayground({ lang }: Props) {
   }, [playing, reduce, step]);
 
   const t = {
-    title: en ? "See the whole job, start to finish." : "Ona kazi nzima, kuanzia mwanzo hadi mwisho.",
+    eyebrow: en ? "NearbyFundi for customers" : "NearbyFundi kwa wateja",
+    title: en
+        ? "See the whole job, start to finish."
+        : "Ona kazi nzima, kuanzia mwanzo hadi mwisho.",
     subtitle: en
-        ? "Follow a real NearbyFundi booking: sign up, share your location, pick a fundi and watch them arrive."
-        : "Fuata mchakato halisi wa NearbyFundi: jisajili, weka eneo lako, chagua fundi na umwone akiwasili.",
+        ? "Pick your location, choose a service, view nearby fundis and book — then track them live until the job is done."
+        : "Chagua eneo lako, chagua huduma, ona mafundi wa karibu na weka ombi — kisha fuatilia moja kwa moja hadi kazi ikamilike.",
     play: en ? "Play" : "Cheza",
     pause: en ? "Pause" : "Simamisha",
     restart: en ? "Restart" : "Anza upya",
@@ -153,35 +155,41 @@ export default function AppPlayground({ lang }: Props) {
   return (
       <section
           id="app-demo"
-          className="relative overflow-hidden section-pad bg-slate-950 text-white"
+          className="relative overflow-hidden section-pad bg-white"
       >
-        {/* Ambient light + fine grid */}
+        {/* Ambient light + grid — light version */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-40 top-0 h-[28rem] w-[28rem] rounded-full bg-emerald-500/15 blur-3xl" />
+          <div className="absolute -left-40 top-0 h-[28rem] w-[28rem] rounded-full bg-emerald-500/10 blur-3xl" />
           <div className="absolute -right-32 bottom-0 h-[30rem] w-[30rem] rounded-full bg-amber-400/10 blur-3xl" />
           <div
-              className="absolute inset-0 opacity-[0.06]"
+              className="absolute inset-0 opacity-[0.05]"
               style={{
                 backgroundImage:
-                    "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                    "linear-gradient(#0f172a 1px, transparent 1px), linear-gradient(90deg, #0f172a 1px, transparent 1px)",
                 backgroundSize: "56px 56px",
-                maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-                WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+                maskImage:
+                    "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+                WebkitMaskImage:
+                    "radial-gradient(ellipse at center, black 30%, transparent 75%)",
               }}
           />
         </div>
 
         <div className="container-page relative grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
-          {/* ---------- Left: story + step rail ---------- */}
+          {/* Left: story + step rail */}
           <div className="order-2 lg:order-1">
             <Reveal>
-              <h2 className="max-w-xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-bold text-emerald-700">
+              {t.eyebrow}
+            </span>
+              <h2 className="mt-4 max-w-xl text-4xl font-black leading-[1.08] tracking-tight text-slate-900 sm:text-5xl">
                 {t.title}
               </h2>
-              <p className="mt-5 max-w-lg text-lg leading-8 text-slate-300">{t.subtitle}</p>
+              <p className="mt-5 max-w-lg text-lg leading-8 text-slate-600">
+                {t.subtitle}
+              </p>
             </Reveal>
 
-            {/* Step rail */}
             <ol className="mt-10 space-y-1">
               {STEPS.map((s, i) => {
                 const active = i === step;
@@ -189,20 +197,21 @@ export default function AppPlayground({ lang }: Props) {
                 const Icon = s.icon;
                 return (
                     <li key={s.id} className="relative pl-7">
-                      {/* rail track */}
-                      <span className="absolute bottom-0 left-0 top-0 w-[3px] rounded-full bg-white/10" />
-                      {/* rail fill: full when done, timed when active */}
+                      <span className="absolute bottom-0 left-0 top-0 w-[3px] rounded-full bg-slate-200" />
                       {done && (
-                          <span className="absolute bottom-0 left-0 top-0 w-[3px] rounded-full bg-emerald-400/70" />
+                          <span className="absolute bottom-0 left-0 top-0 w-[3px] rounded-full bg-emerald-500/70" />
                       )}
                       {active && (
                           <motion.span
                               key={`${s.id}-${playing}`}
-                              className="absolute left-0 top-0 w-[3px] origin-top rounded-full bg-gradient-to-b from-emerald-300 to-amber-300"
+                              className="absolute left-0 top-0 w-[3px] origin-top rounded-full bg-gradient-to-b from-emerald-500 to-amber-400"
                               style={{ height: "100%" }}
                               initial={{ scaleY: playing && !reduce ? 0 : 1 }}
                               animate={{ scaleY: 1 }}
-                              transition={{ duration: playing && !reduce ? STEP_MS / 1000 : 0.2, ease: "linear" }}
+                              transition={{
+                                duration: playing && !reduce ? STEP_MS / 1000 : 0.2,
+                                ease: "linear",
+                              }}
                           />
                       )}
 
@@ -213,15 +222,15 @@ export default function AppPlayground({ lang }: Props) {
                             go(i);
                           }}
                           aria-current={active ? "step" : undefined}
-                          className="group flex w-full items-start gap-4 rounded-2xl px-3 py-3.5 text-left transition hover:bg-white/[0.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-300"
+                          className="group flex w-full items-start gap-4 rounded-2xl px-3 py-3.5 text-left transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-500"
                       >
                     <span
                         className={`mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl transition ${
                             active
-                                ? "bg-emerald-400 text-slate-950 shadow-lg shadow-emerald-400/30"
+                                ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/30"
                                 : done
-                                    ? "bg-emerald-400/15 text-emerald-300"
-                                    : "bg-white/5 text-slate-400 group-hover:text-white"
+                                    ? "bg-emerald-500/15 text-emerald-700"
+                                    : "bg-slate-100 text-slate-400 group-hover:text-slate-700"
                         }`}
                     >
                       <Icon size={19} strokeWidth={2.2} />
@@ -230,7 +239,9 @@ export default function AppPlayground({ lang }: Props) {
                         <span className="min-w-0 flex-1">
                       <span
                           className={`block text-base font-extrabold transition sm:text-lg ${
-                              active ? "text-white" : "text-slate-400 group-hover:text-slate-200"
+                              active
+                                  ? "text-slate-900"
+                                  : "text-slate-400 group-hover:text-slate-700"
                           }`}
                       >
                         {en ? s.titleEn : s.titleSw}
@@ -243,15 +254,22 @@ export default function AppPlayground({ lang }: Props) {
                                 initial={reduce ? false : { height: 0, opacity: 0 }}
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={reduce ? undefined : { height: 0, opacity: 0 }}
-                                transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+                                transition={{
+                                  duration: 0.32,
+                                  ease: [0.22, 1, 0.36, 1],
+                                }}
                                 className="block overflow-hidden"
                             >
-                            <span className="mt-1.5 block max-w-md text-sm leading-6 text-slate-300">
+                            <span className="mt-1.5 block max-w-md text-sm leading-6 text-slate-600">
                               {en ? s.descEn : s.descSw}
                             </span>
-                              <span className="mt-3 inline-flex flex-wrap items-center gap-x-2 rounded-lg bg-white/[0.06] px-3 py-1.5 text-sm">
-                              <span className="font-semibold text-amber-300">{t.tip}</span>
-                              <span className="font-medium text-white">{en ? s.tipEn : s.tipSw}</span>
+                              <span className="mt-3 inline-flex flex-wrap items-center gap-x-2 rounded-lg bg-slate-100 px-3 py-1.5 text-sm">
+                              <span className="font-semibold text-amber-700">
+                                {t.tip}
+                              </span>
+                              <span className="font-medium text-slate-900">
+                                {en ? s.tipEn : s.tipSw}
+                              </span>
                             </span>
                             </motion.span>
                         )}
@@ -263,7 +281,6 @@ export default function AppPlayground({ lang }: Props) {
               })}
             </ol>
 
-            {/* Controls */}
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <button
                   type="button"
@@ -272,14 +289,14 @@ export default function AppPlayground({ lang }: Props) {
                     go(step - 1);
                   }}
                   aria-label="Previous"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5 transition hover:bg-white/15"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-100"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
                   type="button"
                   onClick={() => setPlaying((p) => !p)}
-                  className="inline-flex h-11 items-center gap-2 rounded-full bg-emerald-400 px-5 font-bold text-slate-950 transition hover:bg-emerald-300"
+                  className="inline-flex h-11 items-center gap-2 rounded-full bg-emerald-500 px-5 font-bold text-white transition hover:bg-emerald-400"
               >
                 {playing ? <Pause size={16} /> : <Play size={16} />}
                 {playing ? t.pause : t.play}
@@ -291,7 +308,7 @@ export default function AppPlayground({ lang }: Props) {
                     go(step + 1);
                   }}
                   aria-label="Next"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5 transition hover:bg-white/15"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-100"
               >
                 <ChevronRight size={20} />
               </button>
@@ -304,27 +321,29 @@ export default function AppPlayground({ lang }: Props) {
                   }}
                   aria-label={t.restart}
                   title={t.restart}
-                  className="grid h-11 w-11 place-items-center rounded-full text-slate-400 transition hover:bg-white/10 hover:text-white"
+                  className="grid h-11 w-11 place-items-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-900"
               >
                 <RotateCcw size={16} />
               </button>
-              <span className="ml-1 text-sm font-medium text-slate-400">
+              <span className="ml-1 text-sm font-medium text-slate-500">
               {t.step} {step + 1} {t.of} {STEPS.length}
             </span>
             </div>
           </div>
 
-          {/* ---------- Right: one big phone ---------- */}
+          {/* Right: phone */}
           <div className="order-1 flex flex-col items-center lg:order-2">
             <div className="relative w-[280px] sm:w-[310px]">
-              {/* glow */}
               <motion.div
-                  className="absolute -inset-8 rounded-[64px] bg-gradient-to-br from-emerald-400/30 via-teal-400/15 to-amber-300/25 blur-2xl"
-                  animate={reduce ? undefined : { opacity: [0.6, 1, 0.6], scale: [1, 1.04, 1] }}
+                  className="absolute -inset-8 rounded-[64px] bg-gradient-to-br from-emerald-400/25 via-teal-400/10 to-amber-300/20 blur-2xl"
+                  animate={
+                    reduce
+                        ? undefined
+                        : { opacity: [0.6, 1, 0.6], scale: [1, 1.04, 1] }
+                  }
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               />
 
-              {/* floating step badge */}
               <AnimatePresence mode="wait">
                 <motion.div
                     key={current.id}
@@ -332,16 +351,17 @@ export default function AppPlayground({ lang }: Props) {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={reduce ? undefined : { opacity: 0, y: -10, scale: 0.9 }}
                     transition={{ type: "spring", stiffness: 380, damping: 18 }}
-                    className="absolute -left-4 top-14 z-20 flex items-center gap-2.5 rounded-2xl border border-white/15 bg-slate-900/90 py-2 pl-2 pr-4 shadow-2xl backdrop-blur sm:-left-14"
+                    className="absolute -left-4 top-14 z-20 flex items-center gap-2.5 rounded-2xl border border-slate-200 bg-white py-2 pl-2 pr-4 shadow-xl sm:-left-14"
                 >
-                <span className="grid h-9 w-9 place-items-center rounded-xl bg-emerald-400 text-slate-950">
+                <span className="grid h-9 w-9 place-items-center rounded-xl bg-emerald-500 text-white">
                   <current.icon size={18} strokeWidth={2.4} />
                 </span>
-                  <span className="text-sm font-extrabold">{en ? current.titleEn : current.titleSw}</span>
+                  <span className="text-sm font-extrabold text-slate-900">
+                  {en ? current.titleEn : current.titleSw}
+                </span>
                 </motion.div>
               </AnimatePresence>
 
-              {/* phone (draggable to swipe between steps) */}
               <motion.div
                   drag="x"
                   dragConstraints={{ left: 0, right: 0 }}
@@ -351,12 +371,16 @@ export default function AppPlayground({ lang }: Props) {
                     setPlaying(false);
                     go(info.offset.x < 0 ? step + 1 : step - 1);
                   }}
-                  className="relative cursor-grab touch-pan-y rounded-[44px] border-[9px] border-slate-800 bg-slate-950 p-1.5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/10 active:cursor-grabbing"
+                  className="relative cursor-grab touch-pan-y rounded-[44px] border-[9px] border-slate-800 bg-slate-950 p-1.5 shadow-[0_40px_80px_-20px_rgba(15,23,42,0.35)] ring-1 ring-slate-200 active:cursor-grabbing"
               >
                 <div className="relative overflow-hidden rounded-[34px] bg-slate-900">
                   <div className="absolute left-1/2 top-2 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-slate-950" />
                   <div className="relative aspect-[9/19] w-full overflow-hidden">
-                    <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                    <AnimatePresence
+                        initial={false}
+                        custom={direction}
+                        mode="popLayout"
+                    >
                       <motion.img
                           key={current.id}
                           src={current.img}
@@ -366,7 +390,11 @@ export default function AppPlayground({ lang }: Props) {
                           initial="enter"
                           animate="center"
                           exit="exit"
-                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 30,
+                          }}
                           className="absolute inset-0 h-full w-full select-none object-cover object-top"
                           draggable={false}
                       />
@@ -376,7 +404,6 @@ export default function AppPlayground({ lang }: Props) {
               </motion.div>
             </div>
 
-            {/* dots + hint */}
             <div className="mt-8 flex items-center gap-2">
               {STEPS.map((s, i) => (
                   <button
@@ -388,13 +415,15 @@ export default function AppPlayground({ lang }: Props) {
                         go(i);
                       }}
                       className={`h-2 rounded-full transition-all ${
-                          i === step ? "w-8 bg-emerald-400" : "w-2 bg-white/25 hover:bg-white/50"
+                          i === step
+                              ? "w-8 bg-emerald-500"
+                              : "w-2 bg-slate-300 hover:bg-slate-400"
                       }`}
                   />
               ))}
             </div>
-            <p className="mt-4 flex items-center gap-2 text-xs font-medium text-slate-400">
-              <Hand size={14} className="text-emerald-300" />
+            <p className="mt-4 flex items-center gap-2 text-xs font-medium text-slate-500">
+              <Hand size={14} className="text-emerald-600" />
               {t.swipe}
             </p>
           </div>

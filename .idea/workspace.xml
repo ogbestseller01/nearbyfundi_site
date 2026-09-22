@@ -2,10 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9b2319-8c83-4d5c-8721-6ac11b0c654c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/AppleStoreIcon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Google_Play_Store.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/FundiAppPlayground.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/AboutSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/CareersSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/ContactSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/FaqSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/PartnerLogo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/PartnersSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/ServicesSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/SupportSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/shared.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppPlayground.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NearByFindiAppPlayground.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sections.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sections.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/content.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/content.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,22 +52,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site/public",
-    "nodejs_package_manager_path": "npm",
-    "show.migrate.to.gradle.popup": "false",
-    "ts.external.directory.path": "/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site/public&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -67,6 +80,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="TaskManager">
@@ -84,7 +100,9 @@
       <workItem from="1789187630009" duration="4737000" />
       <workItem from="1789241330654" duration="26000" />
       <workItem from="1789378694157" duration="1509000" />
-      <workItem from="1789970437472" duration="6489000" />
+      <workItem from="1789970437472" duration="9007000" />
+      <workItem from="1790004152094" duration="598000" />
+      <workItem from="1790056520168" duration="8216000" />
     </task>
     <servers />
   </component>

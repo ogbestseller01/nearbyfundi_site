@@ -20,9 +20,9 @@ export default function Footer({ lang }: { lang: Lang }) {
       <>
         <footer className="bg-slate-950 text-white">
           <div className="container-page py-16">
-            {/* Top section */}
-            <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-              {/* Brand column */}
+            {/* ── Top section ── */}
+            <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
+              {/* Brand */}
               <div>
                 <div className="flex items-center gap-2.5 text-xl font-black">
                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-emerald-400 text-slate-950">
@@ -71,11 +71,21 @@ export default function Footer({ lang }: { lang: Lang }) {
                   Product
                 </h4>
                 <div className="mt-5 space-y-3 text-sm text-slate-400">
-                  <a href="#about" className="block transition hover:text-white">About</a>
-                  <a href="#app-demo" className="block transition hover:text-white">App journey</a>
-                  <a href="#services" className="block transition hover:text-white">Services</a>
-                  <a href="#blog" className="block transition hover:text-white">Blog</a>
-                  <a href="#partners" className="block transition hover:text-white">Partners</a>
+                  <a href="#about" className="block transition hover:text-white">
+                    About
+                  </a>
+                  <a href="#app-demo" className="block transition hover:text-white">
+                    App journey
+                  </a>
+                  <a href="#services" className="block transition hover:text-white">
+                    Services
+                  </a>
+                  <a href="#blog" className="block transition hover:text-white">
+                    Blog
+                  </a>
+                  <a href="#partners" className="block transition hover:text-white">
+                    Partners
+                  </a>
                 </div>
               </div>
 
@@ -85,9 +95,15 @@ export default function Footer({ lang }: { lang: Lang }) {
                   Company
                 </h4>
                 <div className="mt-5 space-y-3 text-sm text-slate-400">
-                  <a href="#careers" className="block transition hover:text-white">Careers</a>
-                  <a href="#faq" className="block transition hover:text-white">FAQ</a>
-                  <a href="#support" className="block transition hover:text-white">Support</a>
+                  <a href="#careers" className="block transition hover:text-white">
+                    Careers
+                  </a>
+                  <a href="#faq" className="block transition hover:text-white">
+                    FAQ
+                  </a>
+                  <a href="#support" className="block transition hover:text-white">
+                    Support
+                  </a>
                 </div>
               </div>
 
@@ -97,19 +113,31 @@ export default function Footer({ lang }: { lang: Lang }) {
                   Contact
                 </h4>
                 <div className="mt-5 space-y-3.5 text-sm text-slate-400">
-                  <a href="mailto:ogbestseller01@gmail.com" className="flex items-center gap-2.5 transition hover:text-white">
+                  <a
+                      href="mailto:ogbestseller01@gmail.com"
+                      className="flex items-center gap-2.5 transition hover:text-white"
+                  >
                     <Mail size={15} className="shrink-0 text-emerald-400" />
                     ogbestseller01@gmail.com
                   </a>
-                  <a href="tel:+255746382880" className="flex items-center gap-2.5 transition hover:text-white">
+                  <a
+                      href="tel:+255746382880"
+                      className="flex items-center gap-2.5 transition hover:text-white"
+                  >
                     <Phone size={15} className="shrink-0 text-emerald-400" />
                     +255 746 382 880
                   </a>
-                  <a href="tel:+255679117297" className="flex items-center gap-2.5 transition hover:text-white">
+                  <a
+                      href="tel:+255679117297"
+                      className="flex items-center gap-2.5 transition hover:text-white"
+                  >
                     <Phone size={15} className="shrink-0 text-emerald-400" />
                     +255 679 117 297
                   </a>
-                  <a href="tel:+255612118849" className="flex items-center gap-2.5 transition hover:text-white">
+                  <a
+                      href="tel:+255612118849"
+                      className="flex items-center gap-2.5 transition hover:text-white"
+                  >
                     <Phone size={15} className="shrink-0 text-emerald-400" />
                     +255 612 118 849
                   </a>
@@ -121,50 +149,94 @@ export default function Footer({ lang }: { lang: Lang }) {
               </div>
             </div>
 
-            {/* Divider + Store badges + AI button */}
-            <div className="mt-14 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-10 sm:flex-row sm:items-center">
-              {/* Store badges */}
-              <div className="flex flex-wrap items-center gap-3">
-                <a
-                    href="https://apps.apple.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition hover:opacity-90 hover:scale-[1.03]"
-                    aria-label="Download on the App Store"
-                >
-                  <img
-                      src="/AppleStoreIcon.svg"
-                      alt="Download on the App Store"
-                      className="h-11 w-auto"
-                  />
-                </a>
-                <a
-                    href="https://play.google.com/store"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition hover:opacity-90 hover:scale-[1.03]"
-                    aria-label="Get it on Google Play"
-                >
-                  <img
-                      src="/Google_Play_Store.svg"
-                      alt="Get it on Google Play"
-                      className="h-11 w-auto"
-                  />
-                </a>
-              </div>
+            {/* ── Download section ── */}
+            <div className="mt-14 border-t border-white/10 pt-10">
+              <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+                {/* LEFT → Download Fundi App */}
+                <div>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                    {en ? "Download Fundi App" : "Pakua App ya Fundi"}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <a
+                        href="https://apps.apple.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition hover:opacity-90 hover:scale-[1.03]"
+                        aria-label="Download on the App Store"
+                    >
+                      <img
+                          src="/AppleStoreIcon.svg"
+                          alt="Download on the App Store"
+                          className="h-11 w-auto"
+                      />
+                    </a>
+                    <a
+                        href="https://play.google.com/store"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition hover:opacity-90 hover:scale-[1.03]"
+                        aria-label="Get it on Google Play"
+                    >
+                      <img
+                          src="/Google_Play_Store.svg"
+                          alt="Get it on Google Play"
+                          className="h-11 w-auto"
+                      />
+                    </a>
+                  </div>
+                </div>
 
-              {/* AI Support Demo button */}
-              <button
-                  onClick={() => setChatOpen(true)}
-                  className="inline-flex items-center gap-2.5 rounded-full bg-emerald-500/15 px-5 py-2.5 text-sm font-bold text-emerald-300 ring-1 ring-emerald-500/30 transition hover:bg-emerald-500/25"
-              >
-                <MessageCircle size={16} />
-                {en ? "AI Support (Demo)" : "Msaada wa AI (Demo)"}
-              </button>
+                {/* RIGHT → Download NearbyFundi */}
+                <div className="flex flex-col items-start gap-5 sm:items-end">
+                  <div>
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400 sm:text-right">
+                      {en ? "Download NearbyFundi" : "Pakua NearbyFundi"}
+                    </p>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <a
+                          href="https://apps.apple.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="transition hover:opacity-90 hover:scale-[1.03]"
+                          aria-label="Download on the App Store"
+                      >
+                        <img
+                            src="/AppleStoreIcon.svg"
+                            alt="Download on the App Store"
+                            className="h-11 w-auto"
+                        />
+                      </a>
+                      <a
+                          href="https://play.google.com/store"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="transition hover:opacity-90 hover:scale-[1.03]"
+                          aria-label="Get it on Google Play"
+                      >
+                        <img
+                            src="/Google_Play_Store.svg"
+                            alt="Get it on Google Play"
+                            className="h-11 w-auto"
+                        />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* AI Support */}
+                  <button
+                      onClick={() => setChatOpen(true)}
+                      className="inline-flex items-center gap-2.5 rounded-full bg-emerald-500/15 px-5 py-2.5 text-sm font-bold text-emerald-300 ring-1 ring-emerald-500/30 transition hover:bg-emerald-500/25"
+                  >
+                    <MessageCircle size={16} />
+                    {en ? "AI Support " : "Msaada wa AI "}
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Bottom bar */}
+          {/* ── Bottom bar ── */}
           <div className="border-t border-white/10">
             <div className="container-page flex flex-col items-center justify-between gap-3 py-5 text-xs text-slate-500 sm:flex-row">
               <span>© {new Date().getFullYear()} NearbyFundi. All rights reserved.</span>
@@ -200,7 +272,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                 </span>
                     <div>
                       <p className="font-bold text-white">
-                        {en ? "AI Support (Demo)" : "Msaada wa AI (Demo)"}
+                        {en ? "AI Support " : "Msaada wa AI "}
                       </p>
                       <p className="text-xs text-slate-400">
                         {en ? "Coming soon • placeholder" : "Inakuja hivi karibuni"}
@@ -224,7 +296,9 @@ export default function Footer({ lang }: { lang: Lang }) {
                         : "Habari! 👋 Mimi ni msaidizi wa AI wa NearbyFundi (demo). Nawezaje kukusaidia?"}
                   </div>
                   <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-emerald-600 px-4 py-3 text-sm text-white">
-                    {en ? "This is just a demo form for now." : "Hii ni fomu ya demo kwa sasa."}
+                    {en
+                        ? "This is just a demo form for now."
+                        : "Hii ni fomu ya demo kwa sasa."}
                   </div>
                 </div>
 
@@ -236,7 +310,9 @@ export default function Footer({ lang }: { lang: Lang }) {
                   <div className="flex items-center gap-2">
                     <input
                         type="text"
-                        placeholder={en ? "Type your message..." : "Andika ujumbe wako..."}
+                        placeholder={
+                          en ? "Type your message..." : "Andika ujumbe wako..."
+                        }
                         className="flex-1 rounded-2xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-emerald-500"
                     />
                     <button
@@ -248,8 +324,8 @@ export default function Footer({ lang }: { lang: Lang }) {
                   </div>
                   <p className="mt-2 text-center text-[11px] text-slate-500">
                     {en
-                        ? "Demo only • Real AI chatbot will be connected later"
-                        : "Demo tu • AI chatbot halisi itaunganishwa baadaye"}
+                        ? "Real AI chatbot will be connected later"
+                        : "AI chatbot halisi itaunganishwa baadaye"}
                   </p>
                 </form>
               </div>

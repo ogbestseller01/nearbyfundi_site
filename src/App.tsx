@@ -31,7 +31,7 @@ export default function App() {
       <Navbar lang={lang} setLang={setLang} dark={dark} toggleDark={toggleDark} />
       <main>
         <Hero lang={lang} />
-        <Sections lang={lang} setLang={setLang} />
+        <Sections lang={lang} />
       </main>
       <Footer lang={lang} />
     </div>

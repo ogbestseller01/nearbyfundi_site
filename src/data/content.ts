@@ -12,7 +12,7 @@ export const copy = {
       careers: "Careers",
       faq: "FAQ",
       support: "Support",
-      contact: "Contact"
+      contact: "Contact",
     },
     heroEyebrow: "Your trusted service marketplace",
     heroTitle: "Find a trusted fundi. Right when you need one.",
@@ -28,7 +28,7 @@ export const copy = {
     serviceTitle: "One app for everyday services.",
     serviceSubtitle:
         "From a leaking pipe to a full house build — search our full catalog of verified trades.",
-    serviceSearchPlaceholder: "Search a service, e.g. \"solar\" or \"plumber\"",
+    serviceSearchPlaceholder: 'Search a service, e.g. "solar" or "plumber"',
     serviceAllCategories: "All services",
     serviceResultsOne: "service",
     serviceResultsMany: "services",
@@ -55,8 +55,16 @@ export const copy = {
     supportText:
         "Our support team can help with accounts, service requests, technician onboarding and general product questions.",
     darkMode: "Dark",
-    lightMode: "Light"
+    lightMode: "Light",
+
+    // Fundi App section
+    fundiAppEyebrow: "Also from NearbyFundi",
+    fundiAppTitle: "Fundi App — built for technicians.",
+    fundiAppText:
+        "A dedicated companion app for fundis. Manage jobs, track earnings, update availability and stay connected with customers — all in one place.",
+    fundiAppCta: "Explore Fundi App",
   },
+
   sw: {
     nav: {
       home: "Mwanzo",
@@ -68,7 +76,7 @@ export const copy = {
       careers: "Ajira",
       faq: "Maswali",
       support: "Msaada",
-      contact: "Mawasiliano"
+      contact: "Mawasiliano",
     },
     heroEyebrow: "Soko la huduma unaloweza kuamini",
     heroTitle: "Mpate fundi unayemwamini, pale unapomhitaji.",
@@ -84,11 +92,12 @@ export const copy = {
     serviceTitle: "Programu moja kwa huduma za kila siku.",
     serviceSubtitle:
         "Kuanzia bomba linalovuja hadi ujenzi wa nyumba nzima — tafuta orodha kamili ya mafundi waliothibitishwa.",
-    serviceSearchPlaceholder: "Tafuta huduma, mf. \"solar\" au \"fundi bomba\"",
+    serviceSearchPlaceholder: 'Tafuta huduma, mf. "solar" au "fundi bomba"',
     serviceAllCategories: "Huduma zote",
     serviceResultsOne: "huduma",
     serviceResultsMany: "huduma",
-    serviceNoResults: "Hakuna huduma inayolingana na utafutaji wako. Jaribu neno lingine.",
+    serviceNoResults:
+        "Hakuna huduma inayolingana na utafutaji wako. Jaribu neno lingine.",
     serviceViewLang: "Angalia orodha hii kwa:",
     serviceShowMore: "Onyesha zaidi",
     serviceShowLess: "Onyesha kidogo",
@@ -111,8 +120,15 @@ export const copy = {
     supportText:
         "Timu yetu inaweza kusaidia kuhusu akaunti, maombi ya huduma, usajili wa mafundi na maswali ya bidhaa.",
     darkMode: "Giza",
-    lightMode: "Mwanga"
-  }
+    lightMode: "Mwanga",
+
+    // Fundi App section
+    fundiAppEyebrow: "Pia kutoka NearbyFundi",
+    fundiAppTitle: "Fundi App — iliyojengwa kwa mafundi.",
+    fundiAppText:
+        "Programu maalum kwa mafundi. Simamia kazi, fuatilia mapato, sasisha upatikanaji na bakia na wateja — yote katika sehemu moja.",
+    fundiAppCta: "Gundua Fundi App",
+  },
 };
 
 export const blogSlides = [
@@ -121,36 +137,74 @@ export const blogSlides = [
     titleEn: "Find fundis on the map",
     titleSw: "Tafuta mafundi kwenye ramani",
     descEn: "Live map of technicians in Ubungo, Dar es Salaam with distance and ETA.",
-    descSw: "Ramani ya moja kwa moja ya mafundi Ubungo, Dar es Salaam yenye umbali na ETA."
+    descSw: "Ramani ya moja kwa moja ya mafundi Ubungo, Dar es Salaam yenye umbali na ETA.",
   },
   {
     img: "/screenshots/search.png",
     titleEn: "Search & filter services",
     titleSw: "Tafuta na chuja huduma",
     descEn: "Filter by service category — car diagnostics, electrical, repairs and more.",
-    descSw: "Chuja kwa aina ya huduma — uchunguzi wa gari, umeme, matengenezo na zaidi."
+    descSw: "Chuja kwa aina ya huduma — uchunguzi wa gari, umeme, matengenezo na zaidi.",
   },
   {
     img: "/screenshots/techniciandashboard.png",
     titleEn: "Technician dashboard",
     titleSw: "Dashibodi ya fundi",
     descEn: "Track total, pending and completed requests at a glance.",
-    descSw: "Fuatilia maombi yote, yanayosubiri na yaliyokamilika kwa haraka."
+    descSw: "Fuatilia maombi yote, yanayosubiri na yaliyokamilika kwa haraka.",
   },
   {
     img: "/screenshots/services-pricing.png",
     titleEn: "Services & pricing",
     titleSw: "Huduma na bei",
     descEn: "Technicians select services and set price ranges during onboarding.",
-    descSw: "Mafundi huchagua huduma na kuweka bei wakati wa usajili."
+    descSw: "Mafundi huchagua huduma na kuweka bei wakati wa usajili.",
   },
   {
     img: "/screenshots/pick-location.png",
     titleEn: "Pick location on map",
     titleSw: "Chagua eneo kwenye ramani",
     descEn: "Precise location picker for service requests across Dar es Salaam.",
-    descSw: "Kichagua eneo sahihi kwa maombi ya huduma kote Dar es Salaam."
-  }
+    descSw: "Kichagua eneo sahihi kwa maombi ya huduma kote Dar es Salaam.",
+  },
+];
+
+export const fundiAppSlides = [
+  {
+    img: "/screenshots/fundiapp1.jpeg",
+    titleEn: "Dashboard overview",
+    titleSw: "Muhtasari wa dashibodi",
+    descEn: "See pending jobs, earnings and performance at a glance.",
+    descSw: "Ona kazi zinazosubiri, mapato na utendaji kwa haraka.",
+  },
+  {
+    img: "/screenshots/fundiapp2.jpeg",
+    titleEn: "Job requests",
+    titleSw: "Maombi ya kazi",
+    descEn: "Accept, decline or view details of incoming service requests.",
+    descSw: "Kubali, kataa au angalia maelezo ya maombi yanayoingia.",
+  },
+  {
+    img: "/screenshots/fundiapp3.jpeg",
+    titleEn: "Live location & tracking",
+    titleSw: "Eneo na ufuatiliaji",
+    descEn: "Share live location so customers know when you are on the way.",
+    descSw: "Shiriki eneo la moja kwa moja ili wateja wajue unapokuwa njiani.",
+  },
+  {
+    img: "/screenshots/fundiapp4.jpeg",
+    titleEn: "Earnings & history",
+    titleSw: "Mapato na historia",
+    descEn: "Track completed jobs and your payment history in one place.",
+    descSw: "Fuatilia kazi zilizokamilika na historia ya malipo sehemu moja.",
+  },
+  {
+    img: "/screenshots/fundiapp5.jpeg",
+    titleEn: "Profile & availability",
+    titleSw: "Wasifu na upatikanaji",
+    descEn: "Update services, working hours and toggle availability instantly.",
+    descSw: "Sasisha huduma, saa za kazi na badilisha upatikanaji papo hapo.",
+  },
 ];
 
 export const partners = [
@@ -160,7 +214,7 @@ export const partners = [
     descriptionEn: "Leading payments and financial technology partner in Tanzania and East Africa.",
     descriptionSw: "Mshirika wa malipo na teknolojia ya fedha anayeongoza Tanzania na Afrika Mashariki.",
     logoText: "Selcom",
-    logo: "/selcom.png"
+    logo: "/selcom.png",
   },
   {
     name: "Rafiki SMS",
@@ -168,7 +222,7 @@ export const partners = [
     descriptionEn: "Messaging, SMS and communication infrastructure powering African apps.",
     descriptionSw: "Miundombinu ya ujumbe, SMS na mawasiliano inayoendesha programu za Afrika.",
     logoText: "RafikiSMS",
-    logo: "/refikisms.png"
+    logo: "/refikisms.png",
   },
   {
     name: "Google Play Store",
@@ -176,7 +230,7 @@ export const partners = [
     descriptionEn: "Download the NearbyFundi app on Android.",
     descriptionSw: "Pakua programu ya NearbyFundi kwenye Android.",
     logoText: "Google Play",
-    logo: "/googleconsole.png"
+    logo: "/googleconsole.png",
   },
   {
     name: "Apple App Store",
@@ -184,6 +238,6 @@ export const partners = [
     descriptionEn: "Download the NearbyFundi app on iOS.",
     descriptionSw: "Pakua programu ya NearbyFundi kwenye iOS.",
     logoText: "App Store",
-    logo: "/apple.png"
-  }
+    logo: "/apple.png",
+  },
 ];
