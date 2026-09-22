@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9b2319-8c83-4d5c-8721-6ac11b0c654c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/FundiAppPlayground.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sections/AboutSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sections/CareersSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sections/ContactSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sections/FaqSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sections/PartnerLogo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sections/PartnersSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sections/ServicesSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sections/SupportSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sections/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sections/shared.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AppPlayground.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NearByFindiAppPlayground.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sections.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sections.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/content.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/content.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +45,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site/public&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site/node_modules/typescript/lib&quot;,
@@ -103,6 +87,8 @@
       <workItem from="1789970437472" duration="9007000" />
       <workItem from="1790004152094" duration="598000" />
       <workItem from="1790056520168" duration="8216000" />
+      <workItem from="1790082615476" duration="3436000" />
+      <workItem from="1790091670037" duration="1197000" />
     </task>
     <servers />
   </component>
