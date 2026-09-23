@@ -120,7 +120,7 @@ export default function Hero({ lang }: { lang: Lang }) {
 
             <StaggerItem>
               <motion.p
-                  className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-300"
+                  className="mt-6 max-w-2xl text-base leading-8 text-navy-600 sm:text-lg dark:text-navy-200"
                   initial={bounceIn?.initial}
                   animate={bounceIn?.animate}
                   transition={{ delay: 0.22 }}

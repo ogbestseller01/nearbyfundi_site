@@ -49,7 +49,7 @@ export default function AboutSection({ lang }: { lang: Lang }) {
     return (
         <section
             id="about"
-            className="relative overflow-hidden section-pad bg-[#f6fbf9] dark:bg-navy-800/40"
+            className="relative overflow-hidden section-pad bg-navy-50 dark:bg-navy-800/40"
         >
             {/* soft ambient glow — replaces plain white */}
             <div className="pointer-events-none absolute inset-0">
@@ -60,7 +60,7 @@ export default function AboutSection({ lang }: { lang: Lang }) {
             <div className="container-page relative">
                 <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.05fr]">
                     <Reveal>
-                        <span className="inline-flex items-center gap-2 rounded-full border border-bolt-500/20 bg-bolt-50/80 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-bolt-800 shadow-sm backdrop-blur-md dark:border-bolt-500/30 dark:bg-bolt-950/40 dark:text-bolt-300">
+                        <span className="inline-flex items-center gap-2 rounded-full border border-bolt-500/20 bg-bolt-50/80 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-bolt-800 shadow-sm backdrop-blur-md dark:border-bolt-500/30 dark:bg-bolt-950/40 dark:text-gold-400">
                             {en ? "Built for Tanzania" : "Imejengwa kwa Tanzania"}
                         </span>
 
@@ -70,7 +70,7 @@ export default function AboutSection({ lang }: { lang: Lang }) {
                                 : "Kupata huduma za karibu, kwa urahisi."}
                         </h2>
 
-                        <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+                        <p className="mt-6 max-w-xl text-lg leading-8 text-navy-600 dark:text-navy-200">
                             {en
                                 ? "NearbyFundi is a digital platform that makes it easier to discover, request and communicate with skilled technicians. Customers get convenience. Fundis get visibility and new jobs."
                                 : "NearbyFundi ni jukwaa la kidijitali linalorahisisha kutafuta, kuomba na kuwasiliana na mafundi wenye ujuzi. Wateja wanapata urahisi; mafundi wanapata wateja na kazi zaidi."}
@@ -126,17 +126,17 @@ export default function AboutSection({ lang }: { lang: Lang }) {
                                     <span className="absolute left-16 right-[-2rem] top-6 hidden h-px bg-gradient-to-r from-bolt-300 to-transparent lg:block dark:from-bolt-700" />
                                 )}
                                 <div className="flex items-center gap-3">
-                                    <span className="grid h-12 w-12 place-items-center rounded-2xl bg-bolt-500/15 text-bolt-700 dark:text-bolt-300">
+                                    <span className="grid h-12 w-12 place-items-center rounded-2xl bg-bolt-500/15 text-bolt-700 dark:text-gold-400">
                                         <Icon size={22} />
                                     </span>
-                                    <span className="text-sm font-bold text-slate-400">
+                                    <span className="text-sm font-bold text-bolt-800">
                                         {i + 1}
                                     </span>
                                 </div>
                                 <h3 className="mt-4 text-lg font-black text-navy-800 dark:text-white">
                                     {title}
                                 </h3>
-                                <p className="mt-1.5 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                                <p className="mt-1.5 text-sm leading-6 text-bolt-900 dark:text-bolt-800">
                                     {text}
                                 </p>
                             </div>

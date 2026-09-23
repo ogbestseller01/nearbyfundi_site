@@ -28,10 +28,10 @@ export default function PhoneMockup({ screen, label }: Props) {
   const Icon = d.icon;
 
   return (
-      <div className="mx-auto w-[230px] rounded-[38px] border-[7px] border-navy-800 bg-navy-800 p-1 shadow-2xl ring-1 ring-black/10">
-        <div className="flex h-[430px] flex-col overflow-hidden rounded-[30px] bg-slate-50">
+      <div className="mx-auto w-[230px] rounded-[38px] border-[7px] border-navy-800 bg-navy-800 p-1 shadow-2xl ring-1 ring-navy-950/10">
+        <div className="flex h-[430px] flex-col overflow-hidden rounded-[30px] bg-navy-50">
           {/* Status bar */}
-          <div className="relative flex items-center justify-between px-5 pt-2.5 text-[10px] font-bold text-slate-700">
+          <div className="relative flex items-center justify-between px-5 pt-2.5 text-[10px] font-bold text-navy-700">
             <span>9:41</span>
             <span className="absolute left-1/2 top-2 h-4 w-16 -translate-x-1/2 rounded-full bg-navy-800" />
             <span className="flex items-center gap-1">
@@ -47,7 +47,7 @@ export default function PhoneMockup({ screen, label }: Props) {
           </span>
             <div className="min-w-0">
               <p className="truncate text-[13px] font-black leading-tight text-navy-900">{d.title}</p>
-              <p className="truncate text-[10px] font-semibold text-slate-800">{d.sub}</p>
+              <p className="truncate text-[10px] font-semibold text-navy-800">{d.sub}</p>
             </div>
           </div>
 
@@ -55,7 +55,7 @@ export default function PhoneMockup({ screen, label }: Props) {
           <div className="flex-1 space-y-2 overflow-hidden px-3 pt-3">
             {screen === "home" && (
                 <>
-                  <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-[10px] font-semibold text-slate-400">
+                  <div className="flex items-center gap-2 rounded-xl border border-navy-200 bg-white px-3 py-2 text-[10px] font-semibold text-bolt-800">
                     <Search size={11} /> Search services
                   </div>
                   {/* mini map */}
@@ -64,7 +64,7 @@ export default function PhoneMockup({ screen, label }: Props) {
                         className="absolute inset-0 opacity-60"
                         style={{
                           backgroundImage:
-                              "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                              "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
                           backgroundSize: "16px 16px",
                         }}
                     />
@@ -83,10 +83,10 @@ export default function PhoneMockup({ screen, label }: Props) {
                   {d.items.map((item) => (
                       <div
                           key={item}
-                          className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-[11px] font-bold text-slate-700"
+                          className="flex items-center justify-between rounded-xl border border-navy-200 bg-white px-3 py-2.5 text-[11px] font-bold text-navy-700"
                       >
                         {item}
-                        <ChevronRight size={12} className="text-slate-400" />
+                        <ChevronRight size={12} className="text-bolt-800" />
                       </div>
                   ))}
                 </>
@@ -94,19 +94,19 @@ export default function PhoneMockup({ screen, label }: Props) {
 
             {screen === "request" && (
                 <>
-                  <div className="rounded-xl border border-slate-200 bg-white p-3">
-                    <div className="flex justify-between text-[10px] font-bold text-slate-500">
+                  <div className="rounded-xl border border-navy-200 bg-white p-3">
+                    <div className="flex justify-between text-[10px] font-bold text-bolt-900">
                       <span>On the way</span>
                       <span className="text-bolt-600">65%</span>
                     </div>
-                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">
+                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-navy-100">
                       <div className="h-full w-[65%] rounded-full bg-bolt-500" />
                     </div>
                   </div>
                   {d.items.map((item) => (
                       <div
                           key={item}
-                          className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-[11px] font-bold text-slate-700"
+                          className="flex items-center gap-2 rounded-xl border border-navy-200 bg-white px-3 py-2.5 text-[11px] font-bold text-navy-700"
                       >
                         <CheckCircle2 size={13} className="shrink-0 text-bolt-500" />
                         {item}
@@ -124,7 +124,7 @@ export default function PhoneMockup({ screen, label }: Props) {
                             className={`max-w-[85%] px-3 py-2 text-[11px] font-semibold leading-snug ${
                                 mine
                                     ? "rounded-2xl rounded-br-md bg-bolt-500 text-white"
-                                    : "rounded-2xl rounded-bl-md border border-slate-200 bg-white text-slate-700"
+                                    : "rounded-2xl rounded-bl-md border border-navy-200 bg-white text-navy-700"
                             }`}
                         >
                           {item}

@@ -165,7 +165,7 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
               className="absolute inset-0 opacity-[0.05]"
               style={{
                 backgroundImage:
-                    "linear-gradient(#0f172a 1px, transparent 1px), linear-gradient(90deg, #0f172a 1px, transparent 1px)",
+                    "linear-gradient(#001533 1px, transparent 1px), linear-gradient(90deg, #001533 1px, transparent 1px)",
                 backgroundSize: "56px 56px",
                 maskImage:
                     "radial-gradient(ellipse at center, black 30%, transparent 75%)",
@@ -185,7 +185,7 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
               <h2 className="mt-4 max-w-xl text-4xl font-black leading-[1.08] tracking-tight text-navy-800 sm:text-5xl">
                 {t.title}
               </h2>
-              <p className="mt-5 max-w-lg text-lg leading-8 text-slate-600">
+              <p className="mt-5 max-w-lg text-lg leading-8 text-navy-600">
                 {t.subtitle}
               </p>
             </Reveal>
@@ -197,7 +197,7 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
                 const Icon = s.icon;
                 return (
                     <li key={s.id} className="relative pl-7">
-                      <span className="absolute bottom-0 left-0 top-0 w-[3px] rounded-full bg-slate-200" />
+                      <span className="absolute bottom-0 left-0 top-0 w-[3px] rounded-full bg-navy-200" />
                       {done && (
                           <span className="absolute bottom-0 left-0 top-0 w-[3px] rounded-full bg-bolt-500/70" />
                       )}
@@ -222,7 +222,7 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
                             go(i);
                           }}
                           aria-current={active ? "step" : undefined}
-                          className="group flex w-full items-start gap-4 rounded-2xl px-3 py-3.5 text-left transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-bolt-500"
+                          className="group flex w-full items-start gap-4 rounded-2xl px-3 py-3.5 text-left transition hover:bg-navy-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-bolt-500"
                       >
                     <span
                         className={`mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl transition ${
@@ -230,7 +230,7 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
                                 ? "bg-bolt-500 text-white shadow-lg shadow-bolt-500/30"
                                 : done
                                     ? "bg-bolt-500/15 text-bolt-700"
-                                    : "bg-slate-100 text-slate-400 group-hover:text-slate-700"
+                                    : "bg-navy-100 text-bolt-800 group-hover:text-navy-700"
                         }`}
                     >
                       <Icon size={19} strokeWidth={2.2} />
@@ -241,7 +241,7 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
                           className={`block text-base font-extrabold transition sm:text-lg ${
                               active
                                   ? "text-navy-800"
-                                  : "text-slate-400 group-hover:text-slate-700"
+                                  : "text-bolt-800 group-hover:text-navy-700"
                           }`}
                       >
                         {en ? s.titleEn : s.titleSw}
@@ -260,10 +260,10 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
                                 }}
                                 className="block overflow-hidden"
                             >
-                            <span className="mt-1.5 block max-w-md text-sm leading-6 text-slate-600">
+                            <span className="mt-1.5 block max-w-md text-sm leading-6 text-navy-600">
                               {en ? s.descEn : s.descSw}
                             </span>
-                              <span className="mt-3 inline-flex flex-wrap items-center gap-x-2 rounded-lg bg-slate-100 px-3 py-1.5 text-sm">
+                              <span className="mt-3 inline-flex flex-wrap items-center gap-x-2 rounded-lg bg-navy-100 px-3 py-1.5 text-sm">
                               <span className="font-semibold text-gold-700">
                                 {t.tip}
                               </span>
@@ -289,7 +289,7 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
                     go(step - 1);
                   }}
                   aria-label="Previous"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-100"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-navy-200 bg-white text-navy-700 transition hover:bg-navy-100"
               >
                 <ChevronLeft size={20} />
               </button>
@@ -308,7 +308,7 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
                     go(step + 1);
                   }}
                   aria-label="Next"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-100"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-navy-200 bg-white text-navy-700 transition hover:bg-navy-100"
               >
                 <ChevronRight size={20} />
               </button>
@@ -321,11 +321,11 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
                   }}
                   aria-label={t.restart}
                   title={t.restart}
-                  className="grid h-11 w-11 place-items-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-navy-800"
+                  className="grid h-11 w-11 place-items-center rounded-full text-bolt-800 transition hover:bg-navy-100 hover:text-navy-800"
               >
                 <RotateCcw size={16} />
               </button>
-              <span className="ml-1 text-sm font-medium text-slate-500">
+              <span className="ml-1 text-sm font-medium text-bolt-900">
               {t.step} {step + 1} {t.of} {STEPS.length}
             </span>
             </div>
@@ -351,7 +351,7 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={reduce ? undefined : { opacity: 0, y: -10, scale: 0.9 }}
                     transition={{ type: "spring", stiffness: 380, damping: 18 }}
-                    className="absolute -left-4 top-14 z-20 flex items-center gap-2.5 rounded-2xl border border-slate-200 bg-white py-2 pl-2 pr-4 shadow-xl sm:-left-14"
+                    className="absolute -left-4 top-14 z-20 flex items-center gap-2.5 rounded-2xl border border-navy-200 bg-white py-2 pl-2 pr-4 shadow-xl sm:-left-14"
                 >
                 <span className="grid h-9 w-9 place-items-center rounded-xl bg-bolt-500 text-white">
                   <current.icon size={18} strokeWidth={2.4} />
@@ -371,7 +371,7 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
                     setPlaying(false);
                     go(info.offset.x < 0 ? step + 1 : step - 1);
                   }}
-                  className="relative cursor-grab touch-pan-y rounded-[44px] border-[9px] border-slate-800 bg-navy-900 p-1.5 shadow-[0_40px_80px_-20px_rgba(15,23,42,0.35)] ring-1 ring-slate-200 active:cursor-grabbing"
+                  className="relative cursor-grab touch-pan-y rounded-[44px] border-[9px] border-navy-800 bg-navy-900 p-1.5 shadow-[0_40px_80px_-20px_rgba(15,23,42,0.35)] ring-1 ring-navy-200 active:cursor-grabbing"
               >
                 <div className="relative overflow-hidden rounded-[34px] bg-navy-800">
                   <div className="absolute left-1/2 top-2 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-navy-900" />
@@ -417,12 +417,12 @@ export default function NearByFindiAppPlayground({ lang }: Props) {
                       className={`h-2 rounded-full transition-all ${
                           i === step
                               ? "w-8 bg-bolt-500"
-                              : "w-2 bg-slate-300 hover:bg-slate-400"
+                              : "w-2 bg-navy-200 hover:bg-bolt-800"
                       }`}
                   />
               ))}
             </div>
-            <p className="mt-4 flex items-center gap-2 text-xs font-medium text-slate-500">
+            <p className="mt-4 flex items-center gap-2 text-xs font-medium text-bolt-900">
               <Hand size={14} className="text-bolt-600" />
               {t.swipe}
             </p>

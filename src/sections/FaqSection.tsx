@@ -37,7 +37,7 @@ export default function FaqSection({ lang }: { lang: Lang }) {
                     <h2 className="text-4xl font-black tracking-tight sm:text-5xl dark:text-white">
                         {t.faqTitle}
                     </h2>
-                    <p className="mt-5 text-slate-500 dark:text-slate-400">
+                    <p className="mt-5 text-bolt-900 dark:text-bolt-800">
                         {en
                             ? "Everything you need to understand the platform."
                             : "Kila kitu unachohitaji kuelewa kuhusu jukwaa."}
@@ -51,7 +51,7 @@ export default function FaqSection({ lang }: { lang: Lang }) {
                     </a>
                 </div>
 
-                <div className="divide-y divide-slate-200 border-y border-slate-200 dark:divide-slate-800 dark:border-slate-800">
+                <div className="divide-y divide-navy-200 border-y border-navy-200 dark:divide-navy-800 dark:border-navy-800">
                     {faqs.map(([q, a], i) => {
                         const isOpen = faq === i;
                         return (
@@ -65,8 +65,8 @@ export default function FaqSection({ lang }: { lang: Lang }) {
                                     <span
                                         className={`grid h-9 w-9 shrink-0 place-items-center rounded-full transition ${
                                             isOpen
-                                                ? "rotate-45 bg-bolt-400 text-navy-900"
-                                                : "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+                                                ? "rotate-45 bg-gold-500 text-navy-900"
+                                                : "bg-navy-100 text-navy-600 dark:bg-navy-800 dark:text-navy-200"
                                         }`}
                                     >
                     <Plus size={18} />
@@ -84,7 +84,7 @@ export default function FaqSection({ lang }: { lang: Lang }) {
                                             }}
                                             className="overflow-hidden"
                                         >
-                                            <p className="max-w-2xl pb-6 leading-7 text-slate-500 dark:text-slate-400">
+                                            <p className="max-w-2xl pb-6 leading-7 text-bolt-900 dark:text-bolt-800">
                                                 {a}
                                             </p>
                                         </motion.div>

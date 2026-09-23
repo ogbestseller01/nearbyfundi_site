@@ -4,7 +4,7 @@ import type { Lang } from "../data/content";
 import { copy } from "../data/content";
 
 const inputCls =
-    "mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm font-medium outline-none transition focus:border-bolt-500 focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-white";
+    "mt-2 w-full rounded-2xl border border-navy-200 bg-navy-50 px-4 py-3.5 text-sm font-medium outline-none transition focus:border-bolt-500 focus:bg-white dark:border-navy-700 dark:bg-navy-800 dark:text-white";
 
 export default function ContactSection({ lang }: { lang: Lang }) {
     const t = copy[lang];
@@ -18,7 +18,7 @@ export default function ContactSection({ lang }: { lang: Lang }) {
                     <h2 className="text-4xl font-black tracking-tight sm:text-5xl dark:text-white">
                         {t.contactTitle}
                     </h2>
-                    <p className="mt-5 max-w-xl text-lg leading-8 text-slate-500 dark:text-slate-300">
+                    <p className="mt-5 max-w-xl text-lg leading-8 text-bolt-900 dark:text-navy-200">
                         {t.contactText}
                     </p>
 
@@ -45,7 +45,7 @@ export default function ContactSection({ lang }: { lang: Lang }) {
                   <Icon size={20} />
                 </span>
                                 <div>
-                                    <p className="text-xs font-semibold text-slate-400">
+                                    <p className="text-xs font-semibold text-bolt-800">
                                         {label}
                                     </p>
                                     <p className="font-bold dark:text-white">{value}</p>
@@ -56,18 +56,18 @@ export default function ContactSection({ lang }: { lang: Lang }) {
                 </div>
 
                 <form
-                    className="rounded-[32px] border border-slate-200 bg-white p-7 shadow-xl shadow-navy-800/5 sm:p-9 dark:border-slate-700 dark:bg-navy-800"
+                    className="rounded-[32px] border border-navy-200 bg-white p-7 shadow-xl shadow-navy-800/5 sm:p-9 dark:border-navy-700 dark:bg-navy-800"
                     onSubmit={(e) => e.preventDefault()}
                 >
                     <div className="grid gap-5 sm:grid-cols-2">
-                        <label className="text-sm font-bold dark:text-slate-200">
+                        <label className="text-sm font-bold dark:text-navy-200">
                             {en ? "Name" : "Jina"}
                             <input
                                 className={inputCls}
                                 placeholder={en ? "Your name" : "Jina lako"}
                             />
                         </label>
-                        <label className="text-sm font-bold dark:text-slate-200">
+                        <label className="text-sm font-bold dark:text-navy-200">
                             {en ? "Email" : "Barua pepe"}
                             <input
                                 type="email"
@@ -76,7 +76,7 @@ export default function ContactSection({ lang }: { lang: Lang }) {
                             />
                         </label>
                     </div>
-                    <label className="mt-5 block text-sm font-bold dark:text-slate-200">
+                    <label className="mt-5 block text-sm font-bold dark:text-navy-200">
                         {en ? "Message" : "Ujumbe"}
                         <textarea
                             className={`${inputCls} min-h-36`}

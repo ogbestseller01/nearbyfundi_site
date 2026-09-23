@@ -19,7 +19,7 @@ export default function PartnerLogo({
     }
 
     return (
-        <span className="inline-flex h-12 items-center rounded-2xl bg-white px-4 shadow-sm ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+        <span className="inline-flex h-12 items-center rounded-2xl bg-white px-4 shadow-sm ring-1 ring-navy-200 dark:bg-navy-800 dark:ring-navy-700">
       <img
           src={logo}
           alt={logoText}

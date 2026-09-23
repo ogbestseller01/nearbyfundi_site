@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9b2319-8c83-4d5c-8721-6ac11b0c654c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/ogonegrouplogo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/CareersSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/CareersSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +47,7 @@
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site/public",
+    "last_opened_file_path": "/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site",
     "nodejs_package_manager_path": "npm",
     "show.migrate.to.gradle.popup": "false",
     "ts.external.directory.path": "/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site/node_modules/typescript/lib",
@@ -91,6 +92,7 @@
       <workItem from="1790082615476" duration="3436000" />
       <workItem from="1790091670037" duration="3314000" />
       <workItem from="1790140520314" duration="1217000" />
+      <workItem from="1790158430883" duration="3781000" />
     </task>
     <servers />
   </component>

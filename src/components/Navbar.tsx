@@ -57,7 +57,7 @@ export default function Navbar({ lang, setLang, dark, toggleDark }: Props) {
         alignItems: "center",
         justifyContent: "center",
         borderRadius: "16px",
-        background: "#fff",
+        background: "#ffffff",
         boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
       }}
   >
@@ -167,7 +167,7 @@ export default function Navbar({ lang, setLang, dark, toggleDark }: Props) {
                     role="dialog"
                     aria-modal="true"
                 >
-                  <div className="mobile-menu-header w-full flex justify-between items-center pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+                  <div className="mobile-menu-header w-full flex justify-between items-center pb-4 mb-4 border-b border-navy-200 dark:border-navy-800">
                     <span className="mobile-menu-title font-bold text-lg text-navy-900 dark:text-white">Menu</span>
                     <button
                         type="button"
@@ -183,7 +183,7 @@ export default function Navbar({ lang, setLang, dark, toggleDark }: Props) {
                         <motion.a
                             key={key}
                             href={href}
-                            className="mobile-link text-center py-3 font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl"
+                            className="mobile-link text-center py-3 font-semibold text-navy-800 dark:text-navy-100 hover:bg-navy-100 dark:hover:bg-navy-800 rounded-xl"
                             onClick={() => setOpen(false)}
                             initial={{ opacity: 0, x: 15 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -194,7 +194,7 @@ export default function Navbar({ lang, setLang, dark, toggleDark }: Props) {
                     ))}
                   </nav>
 
-                  <div className="mobile-menu-footer w-full flex flex-col gap-4 mt-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+                  <div className="mobile-menu-footer w-full flex flex-col gap-4 mt-6 pt-6 border-t border-navy-200 dark:border-navy-800">
                     <div className="language-switch justify-center">
                       <button
                           type="button"

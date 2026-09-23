@@ -153,7 +153,7 @@ export default function FundiAppPlayground({ lang }: Props) {
                     className="absolute inset-0 opacity-[0.06]"
                     style={{
                         backgroundImage:
-                            "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                            "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
                         backgroundSize: "56px 56px",
                         maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
                         WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
@@ -165,13 +165,13 @@ export default function FundiAppPlayground({ lang }: Props) {
                 {/* Left: story + step rail */}
                 <div className="order-2 lg:order-1">
                     <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-bolt-500/30 bg-bolt-500/10 px-3.5 py-1.5 text-xs font-bold text-bolt-300">
+            <span className="inline-flex items-center gap-2 rounded-full border border-bolt-500/30 bg-bolt-500/10 px-3.5 py-1.5 text-xs font-bold text-gold-400">
               {t.eyebrow}
             </span>
                         <h2 className="mt-4 max-w-xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl">
                             {t.title}
                         </h2>
-                        <p className="mt-5 max-w-lg text-lg leading-8 text-slate-300">
+                        <p className="mt-5 max-w-lg text-lg leading-8 text-navy-200">
                             {t.subtitle}
                         </p>
                     </Reveal>
@@ -213,10 +213,10 @@ export default function FundiAppPlayground({ lang }: Props) {
                     <span
                         className={`mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl transition ${
                             active
-                                ? "bg-bolt-400 text-navy-900 shadow-lg shadow-bolt-400/30"
+                                ? "bg-gold-500 text-navy-900 shadow-lg shadow-gold-500/30"
                                 : done
-                                    ? "bg-bolt-400/15 text-bolt-300"
-                                    : "bg-white/5 text-slate-400 group-hover:text-white"
+                                    ? "bg-gold-500/15 text-gold-400"
+                                    : "bg-white/5 text-navy-200 group-hover:text-white"
                         }`}
                     >
                       <Icon size={19} strokeWidth={2.2} />
@@ -227,7 +227,7 @@ export default function FundiAppPlayground({ lang }: Props) {
                           className={`block text-base font-extrabold transition sm:text-lg ${
                               active
                                   ? "text-white"
-                                  : "text-slate-400 group-hover:text-slate-200"
+                                  : "text-navy-200 group-hover:text-white"
                           }`}
                       >
                         {en ? s.titleEn : s.titleSw}
@@ -243,7 +243,7 @@ export default function FundiAppPlayground({ lang }: Props) {
                                 transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
                                 className="block overflow-hidden"
                             >
-                            <span className="mt-1.5 block max-w-md text-sm leading-6 text-slate-300">
+                            <span className="mt-1.5 block max-w-md text-sm leading-6 text-navy-200">
                               {en ? s.descEn : s.descSw}
                             </span>
                                 <span className="mt-3 inline-flex flex-wrap items-center gap-x-2 rounded-lg bg-white/[0.06] px-3 py-1.5 text-sm">
@@ -279,7 +279,7 @@ export default function FundiAppPlayground({ lang }: Props) {
                         <button
                             type="button"
                             onClick={() => setPlaying((p) => !p)}
-                            className="inline-flex h-11 items-center gap-2 rounded-full bg-bolt-400 px-5 font-bold text-navy-900 transition hover:bg-bolt-300"
+                            className="inline-flex h-11 items-center gap-2 rounded-full bg-gold-500 px-5 font-bold text-navy-900 transition hover:bg-gold-400"
                         >
                             {playing ? <Pause size={16} /> : <Play size={16} />}
                             {playing ? t.pause : t.play}
@@ -304,11 +304,11 @@ export default function FundiAppPlayground({ lang }: Props) {
                             }}
                             aria-label={t.restart}
                             title={t.restart}
-                            className="grid h-11 w-11 place-items-center rounded-full text-slate-400 transition hover:bg-white/10 hover:text-white"
+                            className="grid h-11 w-11 place-items-center rounded-full text-navy-200 transition hover:bg-white/10 hover:text-white"
                         >
                             <RotateCcw size={16} />
                         </button>
-                        <span className="ml-1 text-sm font-medium text-slate-400">
+                        <span className="ml-1 text-sm font-medium text-navy-200">
               {t.step} {step + 1} {t.of} {STEPS.length}
             </span>
                     </div>
@@ -336,7 +336,7 @@ export default function FundiAppPlayground({ lang }: Props) {
                                 transition={{ type: "spring", stiffness: 380, damping: 18 }}
                                 className="absolute -left-4 top-14 z-20 flex items-center gap-2.5 rounded-2xl border border-white/15 bg-navy-800/90 py-2 pl-2 pr-4 shadow-2xl backdrop-blur sm:-left-14"
                             >
-                <span className="grid h-9 w-9 place-items-center rounded-xl bg-bolt-400 text-navy-900">
+                <span className="grid h-9 w-9 place-items-center rounded-xl bg-gold-500 text-navy-900">
                   <current.icon size={18} strokeWidth={2.4} />
                 </span>
                                 <span className="text-sm font-extrabold">
@@ -354,7 +354,7 @@ export default function FundiAppPlayground({ lang }: Props) {
                                 setPlaying(false);
                                 go(info.offset.x < 0 ? step + 1 : step - 1);
                             }}
-                            className="relative cursor-grab touch-pan-y rounded-[44px] border-[9px] border-slate-800 bg-navy-900 p-1.5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/10 active:cursor-grabbing"
+                            className="relative cursor-grab touch-pan-y rounded-[44px] border-[9px] border-navy-800 bg-navy-900 p-1.5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/10 active:cursor-grabbing"
                         >
                             <div className="relative overflow-hidden rounded-[34px] bg-navy-800">
                                 <div className="absolute left-1/2 top-2 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-navy-900" />
@@ -401,8 +401,8 @@ export default function FundiAppPlayground({ lang }: Props) {
                             />
                         ))}
                     </div>
-                    <p className="mt-4 flex items-center gap-2 text-xs font-medium text-slate-400">
-                        <Hand size={14} className="text-bolt-300" />
+                    <p className="mt-4 flex items-center gap-2 text-xs font-medium text-navy-200">
+                        <Hand size={14} className="text-gold-400" />
                         {t.swipe}
                     </p>
                 </div>
