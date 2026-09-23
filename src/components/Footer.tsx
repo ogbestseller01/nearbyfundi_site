@@ -243,7 +243,7 @@ export default function Footer({ lang }: { lang: Lang }) {
               <span>
               Developed by{" "}
                 <a
-                    href="https://www.selcom.net/"
+                    href="https://ogonegroup.co.tz/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-medium text-navy-200 transition hover:text-gold-400"
