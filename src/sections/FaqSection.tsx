@@ -30,7 +30,7 @@ export default function FaqSection({ lang }: { lang: Lang }) {
     const [faq, setFaq] = useState<number | null>(0);
 
     return (
-        <section id="faq" className="section-pad bg-white dark:bg-slate-950">
+        <section id="faq" className="section-pad bg-white dark:bg-navy-900">
             <div className="container-page grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
                 <div className="lg:sticky lg:top-28 lg:self-start">
                     <span className="eyebrow">{t.nav.faq}</span>
@@ -44,7 +44,7 @@ export default function FaqSection({ lang }: { lang: Lang }) {
                     </p>
                     <a
                         href="#contact"
-                        className="mt-6 inline-flex items-center gap-1.5 font-black text-emerald-700 dark:text-emerald-400"
+                        className="mt-6 inline-flex items-center gap-1.5 font-black text-bolt-700 dark:text-bolt-400"
                     >
                         {en ? "Still have a question?" : "Bado una swali?"}{" "}
                         <ArrowRight size={16} />
@@ -65,7 +65,7 @@ export default function FaqSection({ lang }: { lang: Lang }) {
                                     <span
                                         className={`grid h-9 w-9 shrink-0 place-items-center rounded-full transition ${
                                             isOpen
-                                                ? "rotate-45 bg-emerald-400 text-slate-950"
+                                                ? "rotate-45 bg-bolt-400 text-navy-900"
                                                 : "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300"
                                         }`}
                                     >

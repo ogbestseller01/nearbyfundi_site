@@ -49,22 +49,22 @@ export default function AboutSection({ lang }: { lang: Lang }) {
     return (
         <section
             id="about"
-            className="relative overflow-hidden section-pad bg-[#f6fbf9] dark:bg-slate-900/40"
+            className="relative overflow-hidden section-pad bg-[#f6fbf9] dark:bg-navy-800/40"
         >
             {/* soft ambient glow — replaces plain white */}
             <div className="pointer-events-none absolute inset-0">
-                <div className="absolute -left-40 top-0 h-[26rem] w-[26rem] rounded-full bg-emerald-400/10 blur-3xl" />
-                <div className="absolute -right-32 bottom-0 h-[28rem] w-[28rem] rounded-full bg-amber-300/10 blur-3xl" />
+                <div className="absolute -left-40 top-0 h-[26rem] w-[26rem] rounded-full bg-bolt-400/10 blur-3xl" />
+                <div className="absolute -right-32 bottom-0 h-[28rem] w-[28rem] rounded-full bg-gold-300/10 blur-3xl" />
             </div>
 
             <div className="container-page relative">
                 <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.05fr]">
                     <Reveal>
-                        <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-50/80 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-emerald-800 shadow-sm backdrop-blur-md dark:border-emerald-500/30 dark:bg-emerald-950/40 dark:text-emerald-300">
+                        <span className="inline-flex items-center gap-2 rounded-full border border-bolt-500/20 bg-bolt-50/80 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-bolt-800 shadow-sm backdrop-blur-md dark:border-bolt-500/30 dark:bg-bolt-950/40 dark:text-bolt-300">
                             {en ? "Built for Tanzania" : "Imejengwa kwa Tanzania"}
                         </span>
 
-                        <h2 className="mt-5 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl dark:text-white">
+                        <h2 className="mt-5 text-4xl font-black tracking-tight text-navy-800 sm:text-5xl dark:text-white">
                             {en
                                 ? "Local service discovery, made simple."
                                 : "Kupata huduma za karibu, kwa urahisi."}
@@ -78,7 +78,7 @@ export default function AboutSection({ lang }: { lang: Lang }) {
                     </Reveal>
 
                     <div className="relative mx-auto h-[480px] w-full max-w-[560px]">
-                        <div className="absolute inset-x-6 bottom-4 top-16 rounded-[48px] bg-gradient-to-br from-emerald-100 via-teal-50 to-amber-100 dark:from-emerald-900/30 dark:via-slate-900 dark:to-amber-900/20" />
+                        <div className="absolute inset-x-6 bottom-4 top-16 rounded-[48px] bg-gradient-to-br from-bolt-100 via-bolt-50 to-gold-100 dark:from-bolt-900/30 dark:via-navy-800 dark:to-gold-900/20" />
 
                         <motion.div
                             className="absolute left-0 top-14 hidden -rotate-6 sm:block"
@@ -123,17 +123,17 @@ export default function AboutSection({ lang }: { lang: Lang }) {
                         <StaggerItem key={title}>
                             <div className="relative">
                                 {i < steps.length - 1 && (
-                                    <span className="absolute left-16 right-[-2rem] top-6 hidden h-px bg-gradient-to-r from-emerald-300 to-transparent lg:block dark:from-emerald-700" />
+                                    <span className="absolute left-16 right-[-2rem] top-6 hidden h-px bg-gradient-to-r from-bolt-300 to-transparent lg:block dark:from-bolt-700" />
                                 )}
                                 <div className="flex items-center gap-3">
-                                    <span className="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">
+                                    <span className="grid h-12 w-12 place-items-center rounded-2xl bg-bolt-500/15 text-bolt-700 dark:text-bolt-300">
                                         <Icon size={22} />
                                     </span>
                                     <span className="text-sm font-bold text-slate-400">
                                         {i + 1}
                                     </span>
                                 </div>
-                                <h3 className="mt-4 text-lg font-black text-slate-900 dark:text-white">
+                                <h3 className="mt-4 text-lg font-black text-navy-800 dark:text-white">
                                     {title}
                                 </h3>
                                 <p className="mt-1.5 text-sm leading-6 text-slate-500 dark:text-slate-400">

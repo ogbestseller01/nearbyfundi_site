@@ -18,19 +18,19 @@ export default function Footer({ lang }: { lang: Lang }) {
 
   return (
       <>
-        <footer className="bg-slate-950 text-white">
+        <footer className="bg-navy-900 text-white">
           <div className="container-page py-16">
             {/* ── Top section ── */}
             <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
               {/* Brand */}
               <div>
-                <div className="flex items-center gap-2.5 text-xl font-black">
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-emerald-400 text-slate-950">
-                  N
-                </span>
-                  <span>
-                  Nearby<span className="text-emerald-400">Fundi</span>
-                </span>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-3">
+                  <span className="logo-plate" style={{height:56,width:56}}>
+                    <img src="/ogonegrouplogo.png" alt="One Group" className="logo-img" />
+                  </span>
+                  <span className="text-xl font-black">
+                    Nearby<span className="text-gold-400">Fundi</span>
+                  </span>
                 </div>
 
                 <p className="mt-5 max-w-xs leading-7 text-slate-400">
@@ -117,32 +117,32 @@ export default function Footer({ lang }: { lang: Lang }) {
                       href="mailto:ogbestseller01@gmail.com"
                       className="flex items-center gap-2.5 transition hover:text-white"
                   >
-                    <Mail size={15} className="shrink-0 text-emerald-400" />
+                    <Mail size={15} className="shrink-0 text-bolt-400" />
                     ogbestseller01@gmail.com
                   </a>
                   <a
                       href="tel:+255746382880"
                       className="flex items-center gap-2.5 transition hover:text-white"
                   >
-                    <Phone size={15} className="shrink-0 text-emerald-400" />
+                    <Phone size={15} className="shrink-0 text-bolt-400" />
                     +255 746 382 880
                   </a>
                   <a
                       href="tel:+255679117297"
                       className="flex items-center gap-2.5 transition hover:text-white"
                   >
-                    <Phone size={15} className="shrink-0 text-emerald-400" />
+                    <Phone size={15} className="shrink-0 text-bolt-400" />
                     +255 679 117 297
                   </a>
                   <a
                       href="tel:+255612118849"
                       className="flex items-center gap-2.5 transition hover:text-white"
                   >
-                    <Phone size={15} className="shrink-0 text-emerald-400" />
+                    <Phone size={15} className="shrink-0 text-bolt-400" />
                     +255 612 118 849
                   </a>
                   <p className="flex items-start gap-2.5">
-                    <MapPin size={15} className="mt-0.5 shrink-0 text-emerald-400" />
+                    <MapPin size={15} className="mt-0.5 shrink-0 text-bolt-400" />
                     Morocco, Dar es Salaam, Tanzania
                   </p>
                 </div>
@@ -226,7 +226,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                   {/* AI Support */}
                   <button
                       onClick={() => setChatOpen(true)}
-                      className="inline-flex items-center gap-2.5 rounded-full bg-emerald-500/15 px-5 py-2.5 text-sm font-bold text-emerald-300 ring-1 ring-emerald-500/30 transition hover:bg-emerald-500/25"
+                      className="inline-flex items-center gap-2.5 rounded-full bg-bolt-500/15 px-5 py-2.5 text-sm font-bold text-bolt-300 ring-1 ring-bolt-500/30 transition hover:bg-bolt-500/25"
                   >
                     <MessageCircle size={16} />
                     {en ? "AI Support " : "Msaada wa AI "}
@@ -246,7 +246,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                     href="https://www.selcom.net/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium text-slate-400 transition hover:text-emerald-400"
+                    className="font-medium text-slate-400 transition hover:text-bolt-400"
                 >
                 OG-ONE GROUP
               </a>
@@ -263,11 +263,11 @@ export default function Footer({ lang }: { lang: Lang }) {
                   onClick={() => setChatOpen(false)}
               />
 
-              <div className="relative z-10 flex h-[520px] w-full max-w-md flex-col overflow-hidden rounded-3xl border border-slate-700 bg-slate-900 shadow-2xl">
+              <div className="relative z-10 flex h-[520px] w-full max-w-md flex-col overflow-hidden rounded-3xl border border-slate-700 bg-navy-800 shadow-2xl">
                 {/* Header */}
-                <div className="flex items-center justify-between border-b border-slate-700 bg-slate-950 px-5 py-4">
+                <div className="flex items-center justify-between border-b border-slate-700 bg-navy-900 px-5 py-4">
                   <div className="flex items-center gap-3">
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-emerald-500/20 text-emerald-400">
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-bolt-500/20 text-bolt-400">
                   <MessageCircle size={20} />
                 </span>
                     <div>
@@ -295,7 +295,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                         ? "Habari! 👋 I'm the NearbyFundi AI assistant (demo). How can I help you today?"
                         : "Habari! 👋 Mimi ni msaidizi wa AI wa NearbyFundi (demo). Nawezaje kukusaidia?"}
                   </div>
-                  <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-emerald-600 px-4 py-3 text-sm text-white">
+                  <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-bolt-600 px-4 py-3 text-sm text-white">
                     {en
                         ? "This is just a demo form for now."
                         : "Hii ni fomu ya demo kwa sasa."}
@@ -313,11 +313,11 @@ export default function Footer({ lang }: { lang: Lang }) {
                         placeholder={
                           en ? "Type your message..." : "Andika ujumbe wako..."
                         }
-                        className="flex-1 rounded-2xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-emerald-500"
+                        className="flex-1 rounded-2xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-bolt-500"
                     />
                     <button
                         type="submit"
-                        className="grid h-11 w-11 place-items-center rounded-2xl bg-emerald-500 text-slate-950 transition hover:bg-emerald-400"
+                        className="grid h-11 w-11 place-items-center rounded-2xl bg-bolt-500 text-navy-900 transition hover:bg-bolt-400"
                     >
                       <Send size={18} />
                     </button>

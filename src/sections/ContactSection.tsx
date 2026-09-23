@@ -4,14 +4,14 @@ import type { Lang } from "../data/content";
 import { copy } from "../data/content";
 
 const inputCls =
-    "mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm font-medium outline-none transition focus:border-emerald-500 focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-white";
+    "mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm font-medium outline-none transition focus:border-bolt-500 focus:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-white";
 
 export default function ContactSection({ lang }: { lang: Lang }) {
     const t = copy[lang];
     const en = lang === "en";
 
     return (
-        <section id="contact" className="section-pad bg-white dark:bg-slate-950">
+        <section id="contact" className="section-pad bg-white dark:bg-navy-900">
             <div className="container-page grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
                 <div>
                     <span className="eyebrow">{t.contactEyebrow}</span>
@@ -41,7 +41,7 @@ export default function ContactSection({ lang }: { lang: Lang }) {
                             },
                         ].map(({ Icon, label, value }) => (
                             <li key={label} className="flex items-center gap-4">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-bolt-500/15 text-bolt-700 dark:text-bolt-300">
                   <Icon size={20} />
                 </span>
                                 <div>
@@ -56,7 +56,7 @@ export default function ContactSection({ lang }: { lang: Lang }) {
                 </div>
 
                 <form
-                    className="rounded-[32px] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-900/5 sm:p-9 dark:border-slate-700 dark:bg-slate-900"
+                    className="rounded-[32px] border border-slate-200 bg-white p-7 shadow-xl shadow-navy-800/5 sm:p-9 dark:border-slate-700 dark:bg-navy-800"
                     onSubmit={(e) => e.preventDefault()}
                 >
                     <div className="grid gap-5 sm:grid-cols-2">

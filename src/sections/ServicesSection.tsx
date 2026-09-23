@@ -80,14 +80,14 @@ export default function ServicesSection({ lang }: { lang: Lang }) {
     const pillBtn = (active: boolean) =>
         `flex shrink-0 items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-left text-sm font-bold transition ${
             active
-                ? "bg-slate-950 text-white dark:bg-emerald-400 dark:text-slate-950"
+                ? "bg-navy-900 text-white dark:bg-bolt-400 dark:text-navy-900"
                 : "text-slate-600 hover:bg-white dark:text-slate-300 dark:hover:bg-slate-800"
         }`;
 
     return (
         <section
             id="services"
-            className="section-pad bg-[#f6fbf9] dark:bg-slate-900/40"
+            className="section-pad bg-[#f6fbf9] dark:bg-navy-800/40"
         >
             <div className="container-page">
                 <Reveal className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
@@ -102,7 +102,7 @@ export default function ServicesSection({ lang }: { lang: Lang }) {
                     </div>
                     <a
                         href="#contact"
-                        className="inline-flex items-center gap-1.5 font-black text-emerald-700 dark:text-emerald-400"
+                        className="inline-flex items-center gap-1.5 font-black text-bolt-700 dark:text-bolt-400"
                     >
                         {en ? "Talk to us" : "Zungumza nasi"} <ArrowRight size={16} />
                     </a>
@@ -153,7 +153,7 @@ export default function ServicesSection({ lang }: { lang: Lang }) {
                     </aside>
 
                     <div className="min-w-0">
-                        <div className="flex flex-col gap-3 rounded-3xl border border-slate-200 bg-white p-3 sm:flex-row sm:items-center dark:border-slate-700 dark:bg-slate-900">
+                        <div className="flex flex-col gap-3 rounded-3xl border border-slate-200 bg-white p-3 sm:flex-row sm:items-center dark:border-slate-700 dark:bg-navy-800">
                             <div className="relative flex-1">
                                 <Search
                                     size={18}
@@ -224,7 +224,7 @@ export default function ServicesSection({ lang }: { lang: Lang }) {
                                     return (
                                         <div key={cat.key}>
                                             <div className="mb-3 flex items-center gap-2.5">
-                        <span className="grid h-9 w-9 place-items-center rounded-xl bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">
+                        <span className="grid h-9 w-9 place-items-center rounded-xl bg-bolt-500/15 text-bolt-700 dark:text-bolt-300">
                           <Icon size={17} />
                         </span>
                                                 <h3 className="font-black text-slate-800 dark:text-white">
@@ -235,7 +235,7 @@ export default function ServicesSection({ lang }: { lang: Lang }) {
                                                 {cat.items.map((item) => (
                                                     <span
                                                         key={item.id}
-                                                        className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-emerald-900/30"
+                                                        className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:border-bolt-400 hover:bg-bolt-50 dark:border-slate-700 dark:bg-navy-800 dark:text-slate-200 dark:hover:bg-bolt-900/30"
                                                     >
                             {serviceLang === "en"
                                 ? item.en
@@ -253,7 +253,7 @@ export default function ServicesSection({ lang }: { lang: Lang }) {
                             <div className="mt-8">
                                 <button
                                     onClick={() => setExpanded((e) => !e)}
-                                    className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-black text-slate-700 transition hover:border-emerald-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
+                                    className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-black text-slate-700 transition hover:border-bolt-400 dark:border-slate-700 dark:bg-navy-800 dark:text-slate-200"
                                 >
                                     {expanded ? t.serviceShowLess : t.serviceShowMore}
                                     <ChevronDown

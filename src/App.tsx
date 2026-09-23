@@ -7,11 +7,14 @@ import type { Lang } from "./data/content";
 
 export default function App() {
   const [lang, setLang] = useState<Lang>("en");
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
 
   useEffect(() => {
     const stored = localStorage.getItem("nf-theme");
-    if (stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    if (stored === "light") {
+      setDark(false);
+      document.documentElement.classList.remove("dark");
+    } else {
       setDark(true);
       document.documentElement.classList.add("dark");
     }
@@ -27,7 +30,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100">
+    <div className="min-h-screen bg-white text-navy-800 transition-colors dark:bg-navy-900 dark:text-white">
       <Navbar lang={lang} setLang={setLang} dark={dark} toggleDark={toggleDark} />
       <main>
         <Hero lang={lang} />

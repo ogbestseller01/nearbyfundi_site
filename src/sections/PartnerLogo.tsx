@@ -12,7 +12,7 @@ export default function PartnerLogo({
 
     if (failed || !logo) {
         return (
-            <span className="inline-flex h-12 items-center rounded-2xl bg-slate-950 px-5 text-lg font-black text-white dark:bg-emerald-400 dark:text-slate-950">
+            <span className="inline-flex h-12 items-center rounded-2xl bg-navy-900 px-5 text-lg font-black text-white dark:bg-bolt-400 dark:text-navy-900">
         {logoText}
       </span>
         );

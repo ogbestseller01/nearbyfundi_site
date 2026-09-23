@@ -10,14 +10,14 @@ export default function SupportSection({ lang }: { lang: Lang }) {
     return (
         <section
             id="support"
-            className="section-pad bg-slate-50 dark:bg-slate-900/50"
+            className="section-pad bg-slate-50 dark:bg-navy-800/50"
         >
             <div className="container-page">
-                <div className="relative overflow-hidden rounded-[36px] bg-slate-950 p-8 text-white sm:p-12 dark:ring-1 dark:ring-slate-700">
-                    <span className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-emerald-500/20 blur-3xl" />
+                <div className="relative overflow-hidden rounded-[36px] bg-navy-900 p-8 text-white sm:p-12 dark:ring-1 dark:ring-slate-700">
+                    <span className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-bolt-500/20 blur-3xl" />
                     <div className="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
                         <div>
-              <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-300">
+              <span className="inline-flex items-center gap-2 text-sm font-bold text-bolt-300">
                 <Headphones size={16} /> {en ? "Support" : "Msaada"}
               </span>
                             <h2 className="mt-4 text-4xl font-black">{t.supportTitle}</h2>
@@ -28,9 +28,9 @@ export default function SupportSection({ lang }: { lang: Lang }) {
                         <div className="grid gap-3">
                             <a
                                 href="mailto:info.nearbyfundi@gmail.com"
-                                className="group flex items-center gap-4 rounded-2xl bg-emerald-400 p-4 font-bold text-slate-950 transition hover:bg-emerald-300"
+                                className="group flex items-center gap-4 rounded-2xl bg-bolt-400 p-4 font-bold text-navy-900 transition hover:bg-bolt-300"
                             >
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-slate-950 text-emerald-300">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-navy-900 text-bolt-300">
                   <MessageCircle size={20} />
                 </span>
                                 <span className="flex-1">

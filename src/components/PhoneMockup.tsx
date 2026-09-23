@@ -28,12 +28,12 @@ export default function PhoneMockup({ screen, label }: Props) {
   const Icon = d.icon;
 
   return (
-      <div className="mx-auto w-[230px] rounded-[38px] border-[7px] border-slate-900 bg-slate-900 p-1 shadow-2xl ring-1 ring-black/10">
+      <div className="mx-auto w-[230px] rounded-[38px] border-[7px] border-navy-800 bg-navy-800 p-1 shadow-2xl ring-1 ring-black/10">
         <div className="flex h-[430px] flex-col overflow-hidden rounded-[30px] bg-slate-50">
           {/* Status bar */}
           <div className="relative flex items-center justify-between px-5 pt-2.5 text-[10px] font-bold text-slate-700">
             <span>9:41</span>
-            <span className="absolute left-1/2 top-2 h-4 w-16 -translate-x-1/2 rounded-full bg-slate-900" />
+            <span className="absolute left-1/2 top-2 h-4 w-16 -translate-x-1/2 rounded-full bg-navy-800" />
             <span className="flex items-center gap-1">
             <Signal size={10} />
             <Wifi size={10} />
@@ -41,12 +41,12 @@ export default function PhoneMockup({ screen, label }: Props) {
           </div>
 
           {/* Header card */}
-          <div className="mx-3 mt-4 flex items-center gap-3 rounded-2xl bg-emerald-400 p-3.5">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-slate-950 text-emerald-300">
+          <div className="mx-3 mt-4 flex items-center gap-3 rounded-2xl bg-bolt-400 p-3.5">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-navy-900 text-bolt-300">
             <Icon size={19} />
           </span>
             <div className="min-w-0">
-              <p className="truncate text-[13px] font-black leading-tight text-slate-950">{d.title}</p>
+              <p className="truncate text-[13px] font-black leading-tight text-navy-900">{d.title}</p>
               <p className="truncate text-[10px] font-semibold text-slate-800">{d.sub}</p>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function PhoneMockup({ screen, label }: Props) {
                     <Search size={11} /> Search services
                   </div>
                   {/* mini map */}
-                  <div className="relative h-20 overflow-hidden rounded-xl bg-emerald-100">
+                  <div className="relative h-20 overflow-hidden rounded-xl bg-bolt-100">
                     <div
                         className="absolute inset-0 opacity-60"
                         style={{
@@ -75,7 +75,7 @@ export default function PhoneMockup({ screen, label }: Props) {
                     ].map(([l, tp], i) => (
                         <span
                             key={i}
-                            className="absolute grid h-4 w-4 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-emerald-600 ring-2 ring-white"
+                            className="absolute grid h-4 w-4 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-bolt-600 ring-2 ring-white"
                             style={{ left: l, top: tp }}
                         />
                     ))}
@@ -97,10 +97,10 @@ export default function PhoneMockup({ screen, label }: Props) {
                   <div className="rounded-xl border border-slate-200 bg-white p-3">
                     <div className="flex justify-between text-[10px] font-bold text-slate-500">
                       <span>On the way</span>
-                      <span className="text-emerald-600">65%</span>
+                      <span className="text-bolt-600">65%</span>
                     </div>
                     <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">
-                      <div className="h-full w-[65%] rounded-full bg-emerald-500" />
+                      <div className="h-full w-[65%] rounded-full bg-bolt-500" />
                     </div>
                   </div>
                   {d.items.map((item) => (
@@ -108,7 +108,7 @@ export default function PhoneMockup({ screen, label }: Props) {
                           key={item}
                           className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-[11px] font-bold text-slate-700"
                       >
-                        <CheckCircle2 size={13} className="shrink-0 text-emerald-500" />
+                        <CheckCircle2 size={13} className="shrink-0 text-bolt-500" />
                         {item}
                       </div>
                   ))}
@@ -123,7 +123,7 @@ export default function PhoneMockup({ screen, label }: Props) {
                         <p
                             className={`max-w-[85%] px-3 py-2 text-[11px] font-semibold leading-snug ${
                                 mine
-                                    ? "rounded-2xl rounded-br-md bg-emerald-500 text-white"
+                                    ? "rounded-2xl rounded-br-md bg-bolt-500 text-white"
                                     : "rounded-2xl rounded-bl-md border border-slate-200 bg-white text-slate-700"
                             }`}
                         >
@@ -136,7 +136,7 @@ export default function PhoneMockup({ screen, label }: Props) {
 
           {/* Action */}
           <div className="p-3">
-            <div className="rounded-xl bg-slate-950 py-3 text-center text-[11px] font-bold text-white">{label}</div>
+            <div className="rounded-xl bg-navy-900 py-3 text-center text-[11px] font-bold text-white">{label}</div>
           </div>
         </div>
       </div>

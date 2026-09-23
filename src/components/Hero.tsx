@@ -1,4 +1,4 @@
-import { ArrowDownRight, BadgeCheck, CheckCircle2, MapPin, MessageCircle, Sparkles, Users } from "lucide-react";
+import { ArrowDownRight, BadgeCheck, CheckCircle2, MessageCircle, Sparkles, Users } from "lucide-react";
 import { motion, useReducedMotion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import type { Lang } from "../data/content";
@@ -79,12 +79,12 @@ export default function Hero({ lang }: { lang: Lang }) {
       };
 
   return (
-      <section id="home" className="hero-new relative overflow-hidden pt-[72px]">
+      <section id="home" className="hero-new relative overflow-hidden pt-20 sm:pt-24 md:pt-28">
         <div className="hero-grid absolute inset-0" />
         <div className="hero-glow hero-glow-one absolute -left-32 top-20 h-96 w-96 rounded-full blur-3xl" />
         <div className="hero-glow hero-glow-two absolute -right-32 top-12 h-[32rem] w-[32rem] rounded-full blur-3xl" />
 
-        <div className="container-page relative z-10 grid min-h-[calc(100svh-72px)] items-center gap-12 py-14 lg:grid-cols-[1.02fr_.98fr] lg:py-20">
+        <div className="container-page relative z-10 grid min-h-[calc(100vh-80px)] items-center gap-8 py-8 sm:gap-12 sm:py-12 lg:grid-cols-[1.02fr_.98fr] lg:py-16">
           {/* LEFT COLUMN */}
           <Stagger delay={0.05} stagger={0.08}>
             <StaggerItem>
@@ -173,13 +173,12 @@ export default function Hero({ lang }: { lang: Lang }) {
             </StaggerItem>
           </Stagger>
 
-          {/* RIGHT COLUMN — full height image, no crop */}
+          {/* RIGHT COLUMN */}
           <Reveal variant="scaleIn" delay={0.18} duration={0.7}>
             <div className="hero-visual relative mx-auto w-full max-w-[440px]">
               <div className="hero-orbit orbit-one" />
               <div className="hero-orbit orbit-two" />
 
-              {/* Image now shows full height (no max-h / no object-cover crop) */}
               <motion.div
                   className="relative z-10 overflow-hidden rounded-2xl shadow-xl border border-white/20 bg-white/50 backdrop-blur-sm"
                   animate={reduce ? undefined : { y: [0, -8, 0] }}
