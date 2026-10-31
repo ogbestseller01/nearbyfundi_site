@@ -207,37 +207,46 @@ export const fundiAppSlides = [
   },
 ];
 
+// src/data/content.ts (excerpt)
 export const partners = [
-  {
-    name: "Selcom",
-    url: "https://www.selcom.net/",
-    descriptionEn: "Leading payments and financial technology partner in Tanzania and East Africa.",
-    descriptionSw: "Mshirika wa malipo na teknolojia ya fedha anayeongoza Tanzania na Afrika Mashariki.",
-    logoText: "Selcom",
-    logo: "/selcom.png",
-  },
-  {
-    name: "Rafiki SMS",
-    url: "https://www.rafikisms.com/",
-    descriptionEn: "Messaging, SMS and communication infrastructure powering African apps.",
-    descriptionSw: "Miundombinu ya ujumbe, SMS na mawasiliano inayoendesha programu za Afrika.",
-    logoText: "RafikiSMS",
-    logo: "/refikisms.png",
-  },
-  {
-    name: "Google Play Store",
-    url: "https://play.google.com/store",
-    descriptionEn: "Download the NearbyFundi app on Android.",
-    descriptionSw: "Pakua programu ya NearbyFundi kwenye Android.",
-    logoText: "Google Play",
-    logo: "/googleconsole.png",
-  },
-  {
-    name: "Apple App Store",
-    url: "https://www.apple.com/app-store/",
-    descriptionEn: "Download the NearbyFundi app on iOS.",
-    descriptionSw: "Pakua programu ya NearbyFundi kwenye iOS.",
-    logoText: "App Store",
-    logo: "/apple.png",
-  },
+    {
+        name: "Selcom",
+        logo: "/selcom.png",
+        logoText: "Selcom",
+        url: "https://selcom.net",
+        descriptionEn: "Leading payments and financial technology partner.",
+        descriptionSw: "Mshirika anayeongoza wa malipo na teknolojia ya kifedha.",
+    },
+    {
+        name: "Rafiki SMS",
+        logo: "/refikisms.png",
+        logoText: "RafikiSMS",
+        url: "https://rafikisms.co.tz",
+        descriptionEn: "Messaging, SMS and communication infrastructure.",
+        descriptionSw: "Ujumbe, SMS na miundombinu ya mawasiliano.",
+    },
+    {
+        name: "Vodacom",
+        logo: "/vodacom.png",
+        logoText: "Vodacom",
+        url: "https://vodacom.co.tz",
+        descriptionEn: "Telecommunications and network infrastructure.",
+        descriptionSw: "Mawasiliano na miundombinu ya mtandao.",
+    },
+    {
+        name: "Google Play Store",
+        logo: "/Google_Play_Store.svg",
+        logoText: "Google Play",
+        url: "https://play.google.com",
+        descriptionEn: "Download our mobile apps on Android.",
+        descriptionSw: "Pakua programu zetu za simu kwenye Android.",
+    },
+    {
+        name: "Apple App Store",
+        logo: "/AppleStoreIcon.svg",
+        logoText: "App Store",
+        url: "https://apple.com/app-store",
+        descriptionEn: "Download our mobile apps on iOS.",
+        descriptionSw: "Pakua programu zetu za simu kwenye iOS.",
+    },
 ];

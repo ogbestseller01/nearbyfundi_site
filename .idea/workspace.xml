@@ -43,7 +43,7 @@
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site/public",
+    "last_opened_file_path": "/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site",
     "nodejs_package_manager_path": "npm",
     "show.migrate.to.gradle.popup": "false",
     "ts.external.directory.path": "/Users/mudhihirs/ON ONE GROUP FINTECH/nearbyfundi_site/node_modules/typescript/lib",
@@ -93,6 +93,7 @@
       <workItem from="1790158430883" duration="3781000" />
       <workItem from="1790195849765" duration="5415000" />
       <workItem from="1790236089171" duration="5721000" />
+      <workItem from="1790327318968" duration="683000" />
     </task>
     <servers />
   </component>
