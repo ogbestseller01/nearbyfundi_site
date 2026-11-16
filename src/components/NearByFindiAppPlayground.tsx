@@ -100,7 +100,7 @@ const STEPS: Step[] = [
   },
   {
     id: "request",
-    img: "/screenshots/journey-request-fundi.png",
+    img: "/screenshots/request-fundi.png",
     titleEn: "Request this fundi",
     titleSw: "Omba fundi huyu",
     descEn:
