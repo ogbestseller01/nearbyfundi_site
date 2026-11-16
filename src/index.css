@@ -470,3 +470,38 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .floating-card-top { left:-4px; }
   .floating-card-bottom { right:-4px; }
 }
+
+/* Convenience + responsive polish (structure unchanged) */
+@media (max-width: 640px) {
+  .section-pad { padding-top: 3rem; padding-bottom: 3rem; }
+  .container-page { padding-left: 1rem; padding-right: 1rem; }
+  /* Phone mockups scale comfortably on small screens */
+  #app-demo .relative.w-\[280px\],
+  #fundi-app .relative.w-\[280px\] {
+    width: min(260px, 78vw);
+  }
+  /* Larger tap targets for journey controls */
+  #app-demo button,
+  #fundi-app button {
+    min-height: 44px;
+  }
+  .stat-card { padding: 0.85rem 1rem; }
+  .stat-card strong { font-size: 1.35rem; }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .container-page { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+/* Prevent horizontal overflow from absolute phone badges */
+#app-demo,
+#fundi-app {
+  overflow-x: clip;
+}
+
+/* Smoother images in phone frames */
+#app-demo img,
+#fundi-app img {
+  -webkit-user-drag: none;
+  image-rendering: auto;
+}

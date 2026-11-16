@@ -185,7 +185,7 @@ export default function Hero({ lang }: { lang: Lang }) {
                   transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
               >
                 <img
-                    src="/screenshots/homeimg.jpeg"
+                    src="/screenshots/homeimg.png"
                     alt="NearbyFundi Home Interface"
                     className="w-full h-auto object-contain rounded-2xl"
                 />

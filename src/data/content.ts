@@ -61,7 +61,7 @@ export const copy = {
     fundiAppEyebrow: "Also from NearbyFundi",
     fundiAppTitle: "Fundi App — built for technicians.",
     fundiAppText:
-        "A dedicated companion app for fundis. Manage jobs, track earnings, update availability and stay connected with customers — all in one place.",
+        "A dedicated app for fundis. Register, manage requests and jobs, chat with customers, track tickets and showcase your work — all in one place.",
     fundiAppCta: "Explore Fundi App",
   },
 
@@ -126,7 +126,7 @@ export const copy = {
     fundiAppEyebrow: "Pia kutoka NearbyFundi",
     fundiAppTitle: "Fundi App — iliyojengwa kwa mafundi.",
     fundiAppText:
-        "Programu maalum kwa mafundi. Simamia kazi, fuatilia mapato, sasisha upatikanaji na bakia na wateja — yote katika sehemu moja.",
+        "Programu maalum kwa mafundi. Jisajili, simamia maombi na kazi, ongea na wateja, fuatilia tiketi na onyesha kazi zako — yote sehemu moja.",
     fundiAppCta: "Gundua Fundi App",
   },
 };
@@ -171,39 +171,39 @@ export const blogSlides = [
 
 export const fundiAppSlides = [
   {
-    img: "/screenshots/fundiapp1.jpeg",
+    img: "/screenshots/fundi-login.png",
+    titleEn: "Register & sign in",
+    titleSw: "Jisajili na ingia",
+    descEn: "Create account with ID and biometrics, get approved, then sign in.",
+    descSw: "Fungua akaunti kwa kitambulisho na biometriki, idhinishwa, kisha ingia.",
+  },
+  {
+    img: "/screenshots/fundi-dashboard.png",
     titleEn: "Dashboard overview",
     titleSw: "Muhtasari wa dashibodi",
-    descEn: "See pending jobs, earnings and performance at a glance.",
-    descSw: "Ona kazi zinazosubiri, mapato na utendaji kwa haraka.",
+    descEn: "See requests, jobs and tickets counts plus latest customer requests.",
+    descSw: "Ona hesabu za maombi, kazi na tiketi pamoja na maombi ya hivi karibuni.",
   },
   {
-    img: "/screenshots/fundiapp2.jpeg",
-    titleEn: "Job requests",
-    titleSw: "Maombi ya kazi",
-    descEn: "Accept, decline or view details of incoming service requests.",
-    descSw: "Kubali, kataa au angalia maelezo ya maombi yanayoingia.",
+    img: "/screenshots/fundi-requests.png",
+    titleEn: "Customer requests",
+    titleSw: "Maombi ya wateja",
+    descEn: "Accept or reject requests. Accepting creates a job and tickets.",
+    descSw: "Kubali au kataa maombi. Kukubali kunaunda kazi na tiketi.",
   },
   {
-    img: "/screenshots/fundiapp3.jpeg",
-    titleEn: "Live location & tracking",
-    titleSw: "Eneo na ufuatiliaji",
-    descEn: "Share live location so customers know when you are on the way.",
-    descSw: "Shiriki eneo la moja kwa moja ili wateja wajue unapokuwa njiani.",
+    img: "/screenshots/fundi-jobs.png",
+    titleEn: "Jobs & tickets",
+    titleSw: "Kazi na tiketi",
+    descEn: "Track jobs and their tickets from on progress to completed.",
+    descSw: "Fuatilia kazi na tiketi zake kutoka zinazoendelea hadi zilizokamilika.",
   },
   {
-    img: "/screenshots/fundiapp4.jpeg",
-    titleEn: "Earnings & history",
-    titleSw: "Mapato na historia",
-    descEn: "Track completed jobs and your payment history in one place.",
-    descSw: "Fuatilia kazi zilizokamilika na historia ya malipo sehemu moja.",
-  },
-  {
-    img: "/screenshots/fundiapp5.jpeg",
-    titleEn: "Profile & availability",
-    titleSw: "Wasifu na upatikanaji",
-    descEn: "Update services, working hours and toggle availability instantly.",
-    descSw: "Sasisha huduma, saa za kazi na badilisha upatikanaji papo hapo.",
+    img: "/screenshots/fundi-chat.png",
+    titleEn: "Chat & blog posts",
+    titleSw: "Mazungumzo na blogu",
+    descEn: "Chat with customers and manage work posts on the blog.",
+    descSw: "Ongea na wateja na simamia machapisho ya kazi kwenye blogu.",
   },
 ];
 
